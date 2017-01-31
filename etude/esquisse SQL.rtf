@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21320\viewh14460\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 utilisateur : \
+
+\b0 \ul - id_utilisateur\ulnone \
+- nom\
+- prenom\
+- actif\
+- pass\
+- login\
+\
+
+\b projet :\
+
+\b0 - id_projet\
+- libelle\
+- actif\
+\
+
+\b projet_utilisateur
+\b0 \
+- id_projet\
+- id_utilisateur\
+\
+
+\b ticket : \
+
+\b0 \ul - id_ticket\ulnone \
+- libelle\
+- description\
+- id_projet\
+- id_degre_importance\
+- id_statut\
+\
+
+\b statut :
+\b0 \
+\ul - id_statut\ulnone \
+- libelle\
+- actif\
+\
+
+\b suivi_ticket : 
+\b0 \
+- id_ticket\
+- id_utilisateur\
+- id_action\
+- date \
+\
+
+\b action_ticket :
+\b0 \
+- id_action\
+- libelle\
+- etat\
+\
+
+\b degre_importance :\
+
+\b0 - id_degre_importance\
+- libelle\
+- actif
+\b \
+
+\b0 \
+
+\b remarque_ticket :
+\b0 \
+\ul - id_ticket\ulnone \
+- date \
+- texte\
+\
+
+\b tags : \
+
+\b0 \ul - id_tag\ulnone \
+- libelle\
+- actif\
+\
+
+\b tag_ticket :\
+
+\b0 \ul - id_ticket\
+- id_tag\
+\
+
+\b \ulnone plage_travail :\
+
+\b0 \ul - id_plage\ulnone \
+- id_ticket\
+- id_utilisateur\
+- date_debut\
+- date_fin\
+\ul \
+\
+\ulnone \
+\
+\
+}
