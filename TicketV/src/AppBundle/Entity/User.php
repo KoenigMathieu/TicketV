@@ -3,106 +3,87 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-// src/AppBundle/Entity/User.php
-namespace AppBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Table(name="app_users")
+ * User
+ *
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface
 {
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=200)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=64)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string", length=60, unique=true)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     * @assert\Email
      */
     private $email;
 
     /**
-     * @ORM\Column(name="is_active", type="boolean")
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=60)
+     *
      */
-    private $isActive;
+    private $password;
 
-    public function __construct()
-    {
-        $this->isActive = true;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid(null, true));
-    }
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank
+     */
+    private $plainPassword;
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_admin", type="boolean")
+     */
+    private $isAdmin;
 
-    public function getSalt()
-    {
-        // you *may* need a real salt depending on your encoder
-        // see section on salt below
-        return null;
-    }
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registered_at", type="datetime")
+     */
+    private $registeredAt;
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
 
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
+    private $salt;
 
-    public function eraseCredentials()
-    {
-    }
 
-    /** @see \Serializable::serialize() */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt,
-        ));
-    }
-
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt
-            ) = unserialize($serialized);
-    }
+    private $roles;
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -124,17 +105,13 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set password
+     * Get username
      *
-     * @param string $password
-     *
-     * @return User
+     * @return string
      */
-    public function setPassword($password)
+    public function getUsername()
     {
-        $this->password = $password;
-
-        return $this;
+        return $this->username;
     }
 
     /**
@@ -162,26 +139,139 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set isActive
+     * Set password
      *
-     * @param boolean $isActive
+     * @param string $password
      *
      * @return User
      */
-    public function setIsActive($isActive)
+    public function setPassword($password)
     {
-        $this->isActive = $isActive;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get isActive
+     * Get password
      *
-     * @return boolean
+     * @return string
      */
-    public function getIsActive()
+    public function getPassword()
     {
-        return $this->isActive;
+        return $this->password;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * Set isAdmin
+     *
+     * @param boolean $isAdmin
+     *
+     * @return User
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get isAdmin
+     *
+     * @return bool
+     */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * Set registeredAt
+     *
+     * @param \DateTime $registeredAt
+     *
+     * @return User
+     */
+    public function setRegisteredAt($registeredAt)
+    {
+        $this->registeredAt = $registeredAt;
+
+        return $this;
+    }
+
+    /**
+     * Get registeredAt
+     *
+     * @return \DateTime
+     */
+    public function getRegisteredAt()
+    {
+        return $this->registeredAt;
+    }
+
+    public function getRoles(){
+        $roles = ['ROLE_USER'];
+
+       /* if($this->getIsAdmin()){
+            $roles[] = ['ROLE_ADMIN'];
+        }*/
+        return $roles;
+
+    }
+
+
+    public function getSalt(){
+
+    }
+
+    public function eraseCredentials(){
+
+        $this->plainPassword = null;
+    }
+
+    public function isEqualTo(UserInterface $user)
+    {
+        if (!$user instanceof WebserviceUser) {
+            return false;
+        }
+
+        if ($this->password !== $user->getPassword()) {
+            return false;
+        }
+
+        if ($this->salt !== $user->getSalt()) {
+            return false;
+        }
+
+        if ($this->username !== $user->getUsername()) {
+            return false;
+        }
+
+        return true;
     }
 }

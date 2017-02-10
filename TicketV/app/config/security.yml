@@ -11,7 +11,7 @@ security:
         ticketv_provider:
             entity:
                 class: AppBundle:User
-                property: username
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -20,11 +20,14 @@ security:
 
         main:
             anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login_check
+                default_target_path: ticket_index
             # activate different ways to authenticate
-            pattern:    ^/
-            http_basic: ~
             provider: ticketv_provider
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            # http_basic: ~
 
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }

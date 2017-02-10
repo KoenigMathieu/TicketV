@@ -26,6 +26,8 @@ class UserController extends Controller
 
       // last username entered by the user
       $lastUsername = $authenticationUtils->getLastUsername();
+        var_dump("loginAction");
+            var_dump($lastUsername);
 
       return $this->render('user/login.html.twig', array(
           'last_username' => $lastUsername,
@@ -65,11 +67,11 @@ class UserController extends Controller
 
            //dump($em);
            //die();
-          return $this->redirectToRoute('game_play');
+          return $this->redirectToRoute('login');
         }
 
 
-        return $this->render('ticket/show.html.twig',['form' => $form->createView()]);
+        return $this->render('user/signup.html.twig',['form' => $form->createView()]);
     }
 
     /**
@@ -82,35 +84,22 @@ class UserController extends Controller
     }
 
     /**
+     * @Method({"POST"})
      * @Route("/login-check", name="login_check")
-     * @Method("POST")
      */
-    public function loginCheckAction(Request $request)
+    public function check()
     {
-        return $this->redirectToRoute('ticket_index');
+        throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
 
-    public function lastPlayersAction()
+    /**
+     * @Method({"GET"})
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
     {
-        usleep(80000);
-
-        $this->get('debug.stopwatch')->start('lent');
-        for ($i = 0; $i<20000; $i++) {
-            $users = [
-                [ 'username' => 'saro0h' ],
-                [ 'username' => 'stof' ],
-                [ 'username' => 'nicolasgrekas' ],
-                [ 'username' => 'hhamon' ],
-                [ 'username' => 'fabpot' ],
-            ];
-        }
-        $this->get('debug.stopwatch')->stop('lent');
-
-        usleep(30000);
-
-        return $this->render('user/players.html.twig', [
-            'users' => $users,
-        ]);
+        throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
     }
+
 
 }
