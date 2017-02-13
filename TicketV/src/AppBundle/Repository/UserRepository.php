@@ -11,14 +11,20 @@ class UserRepository extends EntityRepository implements  UserLoaderInterface
     public function loadUserByUsername($username)
     {
 
-var_dump('UserRepository loadUserByUsername');
 
-        $q = $this->createQueryBuilder('u')
+        $user = $this->createQueryBuilder('u')
             ->where('u.username = :username')
             ->setParameter('username', $username)
             ->getQuery()
             ->getOneOrNullResult();
 
-        return $q;
+
+        if ($user->getIsAdmin()){
+            return $user;
+        }else{
+            return null;
+        }
+
+
     }
 }

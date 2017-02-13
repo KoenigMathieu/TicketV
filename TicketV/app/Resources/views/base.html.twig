@@ -48,10 +48,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="{{ path('logout') }}">Se deconnecter</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input class="form-control" placeholder="Search..." type="text">
@@ -64,10 +61,11 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li ><a href="{{ path('ticket_index') }}"> Liste des tickets</a></li>
+                <li><a href="{{ path('ticket_index') }}"> Liste des tickets</a></li>
                 <li><a href="{{ path('projet_index') }}"> Liste des projets</a></li>
                 <li><a href="{{ path('statut_index') }}"> Liste des statuts</a></li>
                 <li><a href="{{ path('plagetravail_index') }}"> Liste des plages travail</a></li>
+                <li><a href="{{ path('miseajour_index') }}"> Liste des mises à jour</a></li>
             </ul>
 
         </div>

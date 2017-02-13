@@ -54,6 +54,11 @@ class Ticket
      */
     private $statut;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="MiseAjour")
+     * @ORM\JoinColumn(name="miseajour_id", referencedColumnName="id")
+     */
+    private $miseajour;
 
     /**
      * Get id
@@ -183,5 +188,29 @@ class Ticket
     public function getStatut()
     {
         return $this->statut;
+    }
+
+    /**
+     * Set miseajour
+     *
+     * @param \AppBundle\Entity\MiseAjour $miseajour
+     *
+     * @return Ticket
+     */
+    public function setMiseAjour(\AppBundle\Entity\MiseAjour $miseajour = null)
+    {
+        $this->miseajour = $miseajour;
+
+        return $this;
+    }
+
+    /**
+     * Get miseajour
+     *
+     * @return \AppBundle\Entity\MiseAjour
+     */
+    public function getMiseAjour()
+    {
+        return $this->miseajour;
     }
 }

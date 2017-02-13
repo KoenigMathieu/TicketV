@@ -35,4 +35,18 @@ class SecurityController extends Controller
         return new Response();
     }
 
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction()
+    {
+        try {
+            $this->get("request")->getSession()->invalidate();
+            $this->get("security.context")->setToken(null);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }

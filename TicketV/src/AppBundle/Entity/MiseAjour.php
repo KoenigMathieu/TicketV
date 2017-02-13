@@ -28,6 +28,12 @@ class MiseAjour
      */
     private $libelle;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_maj", type="datetime")
+     */
+    private $dateMaj;
 
     /**
      * Get id
@@ -61,6 +67,30 @@ class MiseAjour
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set DateMaj
+     *
+     * @param \DateTime $dateMaj
+     *
+     * @return MiseAjour
+     */
+    public function setDateMaj($dateMaj)
+    {
+        $this->dateMaj = $dateMaj;
+
+        return $this;
+    }
+
+    /**
+     * Get DateMaj
+     *
+     * @return \DateTime
+     */
+    public function getDateMaj()
+    {
+        return $this->dateMaj;
     }
 }
 

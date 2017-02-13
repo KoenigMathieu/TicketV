@@ -50,6 +50,13 @@ class TicketType extends AbstractType
                 'choices'     => $data->getProjet(),
                 'choice_label' => 'libelle'
             ));
+            $form->add('miseajour', EntityType::class, array(
+                'class'       => 'AppBundle:MiseAjour',
+                'label' => 'Mise à jour',
+                'placeholder' => '',
+                'choices'     => $data->getProjet(),
+                'choice_label' => 'libelle'
+            ));
         }
 
 

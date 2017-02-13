@@ -10,6 +10,9 @@
                 <th>Libelle</th>
                 <th>Description</th>
                 <th>Lien</th>
+                <th>Statut</th>
+                <th>Projet</th>
+                <th>Mise à jour</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,18 +23,12 @@
                 <td>{{ ticket.libelle }}</td>
                 <td>{{ ticket.description }}</td>
                 <td>{{ ticket.lien }}</td>
-                <td>{{ ticket.statut.libelle }}</td>
-                <td>{{ ticket.projet.libelle}}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('ticket_show', { 'id': ticket.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+
+                <td>{% if ticket.statut %}{{ ticket.statut.libelle }}{% endif %}</td>
+                <td>{% if ticket.projet %}{{ ticket.projet.libelle }}{% endif %}</td>
+                <td>{% if ticket.miseajour %}{{ ticket.miseajour.libelle }}{% endif %}</td>
+                <td><a href="{{ path('ticket_show', { 'id': ticket.id }) }}">show</a></td>
+                <td><a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">edit</a></td>
             </tr>
         {% endfor %}
         </tbody>

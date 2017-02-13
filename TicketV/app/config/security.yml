@@ -38,6 +38,8 @@ security:
            # provider: user_provider
             provider: ticketv_provider
             # http_basic: ~
+            logout:
+                path:   /logout
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

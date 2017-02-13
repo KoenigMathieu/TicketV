@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Miseajours list</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -16,16 +16,9 @@
             <tr>
                 <td><a href="{{ path('miseajour_show', { 'id': miseAjour.id }) }}">{{ miseAjour.id }}</a></td>
                 <td>{{ miseAjour.libelle }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('miseajour_show', { 'id': miseAjour.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('miseajour_edit', { 'id': miseAjour.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td>{{ miseAjour.dateMaj|date('d/m/Y à H:i') }}</td>
+                <td><a href="{{ path('miseajour_show', { 'id': miseAjour.id }) }}">show</a></td>
+                <td><a href="{{ path('miseajour_edit', { 'id': miseAjour.id }) }}">edit</a></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -33,7 +26,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('miseajour_new') }}">Create a new miseAjour</a>
+            <a href="{{ path('miseajour_new') }}">Ajouter une mise à jour</a>
         </li>
     </ul>
 {% endblock %}
