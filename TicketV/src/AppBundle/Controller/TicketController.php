@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Ticket controller.
  *
- * @Route("ticket", name="ticket")
+ *  @Route("ticket")
  */
 class TicketController extends Controller
 {
