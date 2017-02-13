@@ -13,14 +13,6 @@
                 <th>Libelle</th>
                 <td>{{ miseAjour.libelle }}</td>
             </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ miseAjour.description }}</td>
-            </tr>
-            <tr>
-                <th>Date_maj</th>
-                <td>{% if miseAjour.datemaj %}{{ miseAjour.datemaj|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
         </tbody>
     </table>
 

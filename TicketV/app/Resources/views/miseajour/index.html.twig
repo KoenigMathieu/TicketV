@@ -8,8 +8,6 @@
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>Description</th>
-                <th>Date_maj</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,8 +16,6 @@
             <tr>
                 <td><a href="{{ path('miseajour_show', { 'id': miseAjour.id }) }}">{{ miseAjour.id }}</a></td>
                 <td>{{ miseAjour.libelle }}</td>
-                <td>{{ miseAjour.description }}</td>
-                <td>{% if miseAjour.datemaj %}{{ miseAjour.datemaj|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
