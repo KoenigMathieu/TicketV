@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Statuts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Actif</th>
+                <th>Idstatut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statut in statuts %}
+            <tr>
+                <td><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">{{ statut.libelle }}</a></td>
+                <td>{{ statut.actif }}</td>
+                <td>{{ statut.idStatut }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('statut_new') }}">Create a new statut</a>
+        </li>
+    </ul>
+{% endblock %}

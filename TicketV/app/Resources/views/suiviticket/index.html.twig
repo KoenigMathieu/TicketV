@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suivitickets list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Remarque</th>
+                <th>Idsuiviticket</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suiviTicket in suiviTickets %}
+            <tr>
+                <td><a href="{{ path('suiviticket_show', { 'idSuiviTicket': suiviTicket.idSuiviTicket }) }}">{{ suiviTicket.date }}</a></td>
+                <td>{{ suiviTicket.remarque }}</td>
+                <td>{{ suiviTicket.idSuiviTicket }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suiviticket_show', { 'idSuiviTicket': suiviTicket.idSuiviTicket }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suiviticket_edit', { 'idSuiviTicket': suiviTicket.idSuiviTicket }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suiviticket_new') }}">Create a new suiviTicket</a>
+        </li>
+    </ul>
+{% endblock %}

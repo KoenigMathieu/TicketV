@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commentairetickets list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Remarque</th>
+                <th>Idcommentaireticket</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaireTicket in commentaireTickets %}
+            <tr>
+                <td><a href="{{ path('commentaireticket_show', { 'idCommentaireTicket': commentaireTicket.idCommentaireTicket }) }}">{{ commentaireTicket.type }}</a></td>
+                <td>{% if commentaireTicket.date %}{{ commentaireTicket.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ commentaireTicket.remarque }}</td>
+                <td>{{ commentaireTicket.idCommentaireTicket }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('commentaireticket_show', { 'idCommentaireTicket': commentaireTicket.idCommentaireTicket }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('commentaireticket_edit', { 'idCommentaireTicket': commentaireTicket.idCommentaireTicket }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commentaireticket_new') }}">Create a new commentaireTicket</a>
+        </li>
+    </ul>
+{% endblock %}

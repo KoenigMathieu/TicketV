@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Degreimportances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Actif</th>
+                <th>Iddegreimportance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for degreImportance in degreImportances %}
+            <tr>
+                <td><a href="{{ path('degreimportance_show', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">{{ degreImportance.libelle }}</a></td>
+                <td>{{ degreImportance.actif }}</td>
+                <td>{{ degreImportance.idDegreImportance }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('degreimportance_show', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('degreimportance_edit', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('degreimportance_new') }}">Create a new degreImportance</a>
+        </li>
+    </ul>
+{% endblock %}

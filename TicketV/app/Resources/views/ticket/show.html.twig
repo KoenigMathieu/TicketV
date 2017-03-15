@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ticket</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ ticket.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ticket.description }}</td>
+            </tr>
+            <tr>
+                <th>Idticket</th>
+                <td>{{ ticket.idTicket }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ticket_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

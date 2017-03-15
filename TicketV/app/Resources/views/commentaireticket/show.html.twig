@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commentaireticket</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Type</th>
+                <td>{{ commentaireTicket.type }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if commentaireTicket.date %}{{ commentaireTicket.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Remarque</th>
+                <td>{{ commentaireTicket.remarque }}</td>
+            </tr>
+            <tr>
+                <th>Idcommentaireticket</th>
+                <td>{{ commentaireTicket.idCommentaireTicket }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commentaireticket_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('commentaireticket_edit', { 'idCommentaireTicket': commentaireTicket.idCommentaireTicket }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
