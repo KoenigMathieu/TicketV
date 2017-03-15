@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../CentralCenter/.idea/CentralCenter.iml" filepath="$PROJECT_DIR$/../../CentralCenter/.idea/CentralCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HangmanSF3C2/.idea/HangmanSF3C2.iml" filepath="$PROJECT_DIR$/../../HangmanSF3C2/.idea/HangmanSF3C2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TestBundle/.idea/TestBundle.iml" filepath="$PROJECT_DIR$/../../TestBundle/.idea/TestBundle.iml" />
       <module fileurl="file://$PROJECT_DIR$/../TicketV/.idea/TicketV.iml" filepath="$PROJECT_DIR$/../TicketV/.idea/TicketV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TicketV2/.idea/TicketV2.iml" filepath="$PROJECT_DIR$/../../TicketV2/.idea/TicketV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../manag/.idea/manag.iml" filepath="$PROJECT_DIR$/../../manag/.idea/manag.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/maquettetest.iml" filepath="$PROJECT_DIR$/.idea/maquettetest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../symfony-demo/.idea/symfony-demo.iml" filepath="$PROJECT_DIR$/../../symfony-demo/.idea/symfony-demo.iml" />
     </modules>
   </component>
 </project>

@@ -15,5 +15,11 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="TicketV" />
+    <orderEntry type="module" module-name="HangmanSF3C2" />
+    <orderEntry type="module" module-name="CentralCenter" />
+    <orderEntry type="module" module-name="symfony-demo" />
+    <orderEntry type="module" module-name="TestBundle" />
+    <orderEntry type="module" module-name="manag" />
+    <orderEntry type="module" module-name="TicketV2" />
   </component>
 </module>
