@@ -37,12 +37,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <first_editor relative-caret-position="150">
+                <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -56,13 +56,13 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1489672461000" expanded="true" signature="366:1023" ph="{&quot;php&quot;: &quot;&gt;=5.5.9&quot;...}" />
-                <marker date="1489672461000" expanded="true" signature="1044:1135" ph="{&quot;sensio/generator-bundle&quot;: &quot;^3.0&quot;...}" />
-                <marker date="1489672461000" expanded="true" signature="1152:1883" ph="{...}" />
-                <marker date="1489672461000" expanded="true" signature="1181:1734" ph="[...]" />
-                <marker date="1489672461000" expanded="true" signature="1764:1806" ph="[...]" />
-                <marker date="1489672461000" expanded="true" signature="1835:1877" ph="[...]" />
-                <marker date="1489672461000" expanded="true" signature="2152:2211" ph="{&quot;file&quot;: &quot;app/config/parameters.yml&quot;...}" />
+                <marker date="1489672981000" expanded="true" signature="366:1023" ph="{&quot;php&quot;: &quot;&gt;=5.5.9&quot;...}" />
+                <marker date="1489672981000" expanded="true" signature="1044:1135" ph="{&quot;sensio/generator-bundle&quot;: &quot;^3.0&quot;...}" />
+                <marker date="1489672981000" expanded="true" signature="1152:1883" ph="{...}" />
+                <marker date="1489672981000" expanded="true" signature="1181:1734" ph="[...]" />
+                <marker date="1489672981000" expanded="true" signature="1764:1806" ph="[...]" />
+                <marker date="1489672981000" expanded="true" signature="1835:1877" ph="[...]" />
+                <marker date="1489672981000" expanded="true" signature="2152:2211" ph="{&quot;file&quot;: &quot;app/config/parameters.yml&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -108,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FosUser.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FosUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/FosUser.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -133,10 +133,10 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -148,8 +148,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="130" />
-    <option name="y" value="55" />
+    <option name="x" value="642" />
+    <option name="y" value="60" />
     <option name="width" value="1213" />
     <option name="height" value="1190" />
   </component>
@@ -311,92 +311,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TicketV">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TicketV">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TicketV">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Entity">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TicketV">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TicketV">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="config">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -481,15 +395,15 @@
       <workItem from="1489413390417" duration="1188000" />
       <workItem from="1489587390247" duration="11000" />
       <workItem from="1489587495712" duration="3520000" />
-      <workItem from="1489602032938" duration="3741000" />
+      <workItem from="1489602032938" duration="4337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8571000" />
+    <option name="totallyTimeSpent" value="9167000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="130" y="55" width="1213" height="1190" extended-state="0" />
+    <frame x="642" y="60" width="1213" height="1190" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30486763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -731,29 +645,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1489672461000" expanded="true" signature="366:1023" ph="{&quot;php&quot;: &quot;&gt;=5.5.9&quot;...}" />
-            <marker date="1489672461000" expanded="true" signature="1044:1135" ph="{&quot;sensio/generator-bundle&quot;: &quot;^3.0&quot;...}" />
-            <marker date="1489672461000" expanded="true" signature="1152:1883" ph="{...}" />
-            <marker date="1489672461000" expanded="true" signature="1181:1734" ph="[...]" />
-            <marker date="1489672461000" expanded="true" signature="1764:1806" ph="[...]" />
-            <marker date="1489672461000" expanded="true" signature="1835:1877" ph="[...]" />
-            <marker date="1489672461000" expanded="true" signature="2152:2211" ph="{&quot;file&quot;: &quot;app/config/parameters.yml&quot;...}" />
+            <marker date="1489672981000" expanded="true" signature="366:1023" ph="{&quot;php&quot;: &quot;&gt;=5.5.9&quot;...}" />
+            <marker date="1489672981000" expanded="true" signature="1044:1135" ph="{&quot;sensio/generator-bundle&quot;: &quot;^3.0&quot;...}" />
+            <marker date="1489672981000" expanded="true" signature="1152:1883" ph="{...}" />
+            <marker date="1489672981000" expanded="true" signature="1181:1734" ph="[...]" />
+            <marker date="1489672981000" expanded="true" signature="1764:1806" ph="[...]" />
+            <marker date="1489672981000" expanded="true" signature="1835:1877" ph="[...]" />
+            <marker date="1489672981000" expanded="true" signature="2152:2211" ph="{&quot;file&quot;: &quot;app/config/parameters.yml&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -813,6 +716,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
