@@ -4,8 +4,9 @@
           href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}">
 {% endblock %}
 
-<div class="container">
+
 {% block content %}
+<div class="container">
     {% block fos_user_content %}
         {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -24,5 +25,5 @@
         </form>
             <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a> - <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
     {% endblock fos_user_content %}
-{% endblock %}
 </div>
+{% endblock %}
