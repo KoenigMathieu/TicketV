@@ -13,3 +13,4 @@ php bin/console doctrine:schema:update --force
 lancer le server :
 bin/console server:run
 
+:-)
