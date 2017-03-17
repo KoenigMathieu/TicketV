@@ -1,41 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Statuts list</h1>
+    <h1>Liste des statuts</h1>
 
-    <table>
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <th>Identifiant</th>
                 <th>Libelle</th>
                 <th>Actif</th>
-                <th>Idstatut</th>
-                <th>Actions</th>
+                <th>Modifier</th>
             </tr>
+            </thead>
         </thead>
         <tbody>
         {% for statut in statuts %}
             <tr>
-                <td><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">{{ statut.libelle }}</a></td>
-                <td>{{ statut.actif }}</td>
                 <td>{{ statut.idStatut }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">{{ statut.libelle }}</a></td>
+                <td>{% if statut.actif %} Oui {% else %} Non {% endif %}</td>
+                <td><a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">Modifier</a></td>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('statut_new') }}">Create a new statut</a>
-        </li>
-    </ul>
+            <a href="{{ path('statut_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau statut</a>
 {% endblock %}

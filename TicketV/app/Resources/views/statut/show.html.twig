@@ -20,17 +20,10 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('statut_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">Edit</a>
-        </li>
-        <li>
+    <a href="{{ path('statut_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+   <br/>
+    <a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-primary" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

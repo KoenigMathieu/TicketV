@@ -5,17 +5,12 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn btn-primary" type="submit" value="Valider les modifications" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('statut_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Supprimer ce statut">
+    {{ form_end(delete_form) }}
+    <a href="{{ path('statut_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+
 {% endblock %}
