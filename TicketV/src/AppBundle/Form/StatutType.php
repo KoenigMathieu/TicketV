@@ -17,7 +17,7 @@ class StatutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('libelle', TextType::class,['label'=>'Libellé du statut : '])
-                ->add('actif', CheckboxType::class,['label'=>'Disponible : ','required' => false]);
+                ->add('actif', CheckboxType::class,['label'=>'Actif : ','required' => false]);
 
         $builder->get('actif')
             ->addModelTransformer(new CallbackTransformer(

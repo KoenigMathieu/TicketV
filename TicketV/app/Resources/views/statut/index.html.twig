@@ -10,7 +10,7 @@
                 <th>Identifiant</th>
                 <th>Libelle</th>
                 <th>Actif</th>
-                <th>Modifier</th>
+                <th></th>
             </tr>
             </thead>
         </thead>
@@ -18,13 +18,29 @@
         {% for statut in statuts %}
             <tr>
                 <td>{{ statut.idStatut }}</td>
-                <td><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">{{ statut.libelle }}</a></td>
+                <td>{{ statut.libelle }}</td>
                 <td>{% if statut.actif %} Oui {% else %} Non {% endif %}</td>
-                <td><a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">Modifier</a></td>
+                <td class="text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <li><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">Consulter</a></li>
+                            <li><a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">Modifier</a></li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
+        <tr>
+            <td colspan="4">
+                <a href="{{ path('statut_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau statut</a>
+            </td>
+        </tr>
         </tbody>
+
     </table>
-            <a href="{{ path('statut_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau statut</a>
+
 {% endblock %}
