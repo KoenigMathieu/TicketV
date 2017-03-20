@@ -14,3 +14,18 @@ lancer le server :
 bin/console server:run
 
 :-)
+
+---------------
+
+Commande git :
+
+Commiter :
+git add .
+git commit -m "remarque commit"
+git push
+
+recuperer :
+git pull
+
+creation d'une branch : 
+git branch nom_nouvelle_branch
