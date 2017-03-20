@@ -1,0 +1,25 @@
+{% block form_row %}
+    <div class="row">
+        <div class="col-md-2">
+            {{ form_label(form) }}
+        </div>
+        {{ form_errors(form) }}
+        <div class="col-md-8">
+            {{ form_widget(form) }}
+        </div>
+    </div>
+{% endblock form_row %}
+
+
+{% block text_widget %}
+    {% spaceless %}
+        <input width="70%" type="text" class="form-control" {{ block('widget_attributes') }} value="{{ value }}"/>
+    {% endspaceless %}
+{% endblock text_widget %}
+
+{% block checkbox_widget %}
+    {% spaceless %}
+        <input type="checkbox" {{ block('widget_attributes') }} value="{{ value }}"/>
+    {% endspaceless %}
+{% endblock checkbox_widget %}
+
