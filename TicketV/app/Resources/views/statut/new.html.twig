@@ -4,13 +4,14 @@
     <h1>Création d'un nouveau statut</h1>
 
     {{ form_start(form) }}
+
+        {% form_theme form 'form/fields.html.twig' %}
+
         {{ form_widget(form) }}
-        <input class="btn btn-primary" type="submit" value="Créer ce statut" />
+        <div class="pull-right">
+            <input class="btn btn-primary" type="submit" value="Créer ce statut" />
+        </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('statut_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <a href="{{ path('statut_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
 {% endblock %}

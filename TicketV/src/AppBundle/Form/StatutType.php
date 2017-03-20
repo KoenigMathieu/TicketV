@@ -22,11 +22,11 @@ class StatutType extends AbstractType
         $builder->get('actif')
             ->addModelTransformer(new CallbackTransformer(
                 function ($actifAsString) {
-                    // transform the array to a string
+                    // transform the String to a Boolean
                     return (bool)$actifAsString;
                 },
                 function ($actifAsBoolean) {
-                    // transform the string back to an array
+                    // transform the Boolean back to a String
                     return $actifAsBoolean;
                 }
             ))
