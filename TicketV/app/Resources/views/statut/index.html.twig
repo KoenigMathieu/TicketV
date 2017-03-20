@@ -13,7 +13,6 @@
                 <th></th>
             </tr>
             </thead>
-        </thead>
         <tbody>
         {% for statut in statuts %}
             <tr>
@@ -29,6 +28,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                             <li><a href="{{ path('statut_show', { 'idStatut': statut.idStatut }) }}">Consulter</a></li>
                             <li><a href="{{ path('statut_edit', { 'idStatut': statut.idStatut }) }}">Modifier</a></li>
+                            <li><a href="{{ path('statut_delete', { 'idStatut': statut.idStatut }) }}">Supprimer</a></li>
                         </ul>
                     </div>
                 </td>
@@ -42,5 +42,5 @@
         </tbody>
 
     </table>
-
+    </div>
 {% endblock %}
