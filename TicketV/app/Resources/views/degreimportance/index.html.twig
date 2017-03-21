@@ -1,41 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Degreimportances list</h1>
+    <h1>Liste des degré d'importance</h1>
 
-    <table>
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <th>Identifiant</th>
                 <th>Libelle</th>
                 <th>Actif</th>
-                <th>Iddegreimportance</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for degreImportance in degreImportances %}
+            </thead>
+            <tbody>
+            {% for degreImportance in degreImportances %}
+                <tr>
+                    <td>{{ degreImportance.idDegreImportance }}</td>
+                    <td>{{ degreImportance.libelle }}</td>
+                    <td>{% if degreImportance.actif %} Oui {% else %} Non {% endif %}</td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ path('degreimportance_show', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">Consulter</a></li>
+                                <li><a href="{{ path('degreimportance_edit', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">Modifier</a></li>
+                                <li><a href="{{ path('degreimportance_delete', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">Supprimer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
             <tr>
-                <td><a href="{{ path('degreimportance_show', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">{{ degreImportance.libelle }}</a></td>
-                <td>{{ degreImportance.actif }}</td>
-                <td>{{ degreImportance.idDegreImportance }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('degreimportance_show', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('degreimportance_edit', { 'idDegreImportance': degreImportance.idDegreImportance }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td colspan="4">
+                    <a href="{{ path('degreimportance_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau degré d'importance</a>
                 </td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
 
-    <ul>
-        <li>
-            <a href="{{ path('degreimportance_new') }}">Create a new degreImportance</a>
-        </li>
-    </ul>
+        </table>
+    </div>
 {% endblock %}
