@@ -1,41 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Projets list</h1>
+    <h1>Liste des projets</h1>
 
-    <table>
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <th>Identifiant</th>
                 <th>Libelle</th>
                 <th>Actif</th>
-                <th>Idprojet</th>
-                <th>Actions</th>
+                <th>Utilisateurs</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for projet in projets %}
+            </thead>
+            <tbody>
+            {% for projet in projets %}
+                <tr>
+                    <td>{{ projet.idProjet }}</td>
+                    <td>{{ projet.libelle }}</td>
+                    <td>{% if projet.actif %} Oui {% else %} Non {% endif %}</td>
+                    <td>{% if projet.idUtilisateur %}
+                        {% for utilisateur in projet.idUtilisateur %}
+                            {{ utilisateur.username }}<br/>
+                        {% endfor %}
+                        {%  endif %}
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ path('projet_show', { 'idProjet': projet.idProjet }) }}">Consulter</a></li>
+                                <li><a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}">Modifier</a></li>
+                                <li><a href="{{ path('projet_delete', { 'idProjet': projet.idProjet }) }}">Supprimer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
             <tr>
-                <td><a href="{{ path('projet_show', { 'idProjet': projet.idProjet }) }}">{{ projet.libelle }}</a></td>
-                <td>{{ projet.actif }}</td>
-                <td>{{ projet.idProjet }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('projet_show', { 'idProjet': projet.idProjet }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td colspan="5">
+                    <a href="{{ path('projet_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau projet</a>
                 </td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
 
-    <ul>
-        <li>
-            <a href="{{ path('projet_new') }}">Create a new projet</a>
-        </li>
-    </ul>
+        </table>
+    </div>
 {% endblock %}

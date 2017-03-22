@@ -3,34 +3,34 @@
 {% block body %}
     <h1>Projet</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Libelle</th>
-                <td>{{ projet.libelle }}</td>
-            </tr>
-            <tr>
-                <th>Actif</th>
-                <td>{{ projet.actif }}</td>
-            </tr>
-            <tr>
-                <th>Idprojet</th>
-                <td>{{ projet.idProjet }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-2"><b>Identifiant : </b></div>
+        <div class="col-md-8">{{ projet.idProjet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Libelle : </b></div>
+        <div class="col-md-8">{{ projet.libelle }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Actif : </b></div>
+        <div class="col-md-8">{% if projet.actif %} Oui {% else %} Non {% endif %}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Liste des utilisateurs : </b></div>
+        <div class="col-md-8">{% if projet.idUtilisateur %}
+                {% for utilisateur in projet.idUtilisateur %}
+                    {{ utilisateur.username }}<br/>
+                {% endfor %}
+            {%  endif %}</div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('projet_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+    <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+    <br/>
+    <a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+    <div class="pull-right">
+        {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}
