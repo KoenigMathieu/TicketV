@@ -17,6 +17,12 @@
     {% endspaceless %}
 {% endblock text_widget %}
 
+{% block textarea_widget %}
+    {% spaceless %}
+        <textarea rows="10" width="70%" class="form-control" {{ block('widget_attributes') }}>{{ value }}</textarea>
+    {% endspaceless %}
+{% endblock textarea_widget %}
+
 
 
 
