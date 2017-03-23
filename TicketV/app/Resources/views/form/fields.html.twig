@@ -8,6 +8,7 @@
             {{ form_widget(form) }}
         </div>
     </div>
+    <br/>
 {% endblock form_row %}
 
 
@@ -24,6 +25,14 @@
 {% endblock textarea_widget %}
 
 
+
+{% block choice_widget %}
+   <select  width="70%" class="form-control" {% if multiple %}multiple{% endif %}>
+       {% for i in 0..data|length -1%}
+           <option value="{{ value[i] }}">{{ data[i] }}</option>
+       {% endfor %}
+   </select>
+{% endblock %}
 
 
 
