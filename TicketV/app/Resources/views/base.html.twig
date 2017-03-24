@@ -52,21 +52,24 @@
     <br/>
     <br/>
     <div class="container-fluid">
+        <div class="row">
             <div class="col-m-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="#">Gestion Statuts </a></li>
-                    <li><a href="#">Gestion degré d'importance</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
+
+                    <li><a href="{{ path('ticket_index') }}">Gestion Tickets </a></li>
+
+                    <li><a href="{{ path('statut_index') }}">Gestion Statuts </a></li>
+                    <li><a href="{{ path('degreimportance_index') }}">Gestion degré d'importance</a></li>
+                    <li><a href="{{ path('tags_index') }}">Gestion Tags</a></li>
+                    <li><a href="{{ path('projet_index') }}">Gestion Projet</a></li>
+
+
+
                     <li><a href="">Nav item again</a></li>
                     <li><a href="">One more nav</a></li>
                     <li><a href="">Another nav item</a></li>
                     <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
+
                     <li><a href="">Nav item again</a></li>
                     <li><a href="">One more nav</a></li>
                     <li><a href="">Another nav item</a></li>
