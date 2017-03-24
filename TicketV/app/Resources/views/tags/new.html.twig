@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tag creation</h1>
+    <h1>Création d'un tag</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+
+    {% form_theme form 'form/fields.html.twig' %}
+
+    {{ form_widget(form) }}
+    <hr/>
+    <div class="pull-right">
+        <input class="btn btn-primary" type="submit" value="Créer ce tag" />
+    </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('tags_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <a href="{{ path('tags_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+
 {% endblock %}

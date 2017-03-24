@@ -1,41 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tags list</h1>
+    <h1>Liste des tagss</h1>
 
-    <table>
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <th>Identifiant</th>
                 <th>Libelle</th>
                 <th>Actif</th>
-                <th>Idtag</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for tag in tags %}
+            </thead>
+            <tbody>
+            {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.idTag }}</td>
+                    <td>{{ tag.libelle }}</td>
+                    <td>{% if tag.actif %} Oui {% else %} Non {% endif %}</td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ path('tags_show', { 'idTag': tag.idTag }) }}">Consulter</a></li>
+                                <li><a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}">Modifier</a></li>
+                                <li><a href="{{ path('tags_delete', { 'idTag': tag.idTag }) }}">Supprimer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
             <tr>
-                <td><a href="{{ path('tags_show', { 'idTag': tag.idTag }) }}">{{ tag.libelle }}</a></td>
-                <td>{{ tag.actif }}</td>
-                <td>{{ tag.idTag }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('tags_show', { 'idTag': tag.idTag }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td colspan="4">
+                    <a href="{{ path('tags_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau tag</a>
                 </td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
 
-    <ul>
-        <li>
-            <a href="{{ path('tags_new') }}">Create a new tag</a>
-        </li>
-    </ul>
+        </table>
+    </div>
 {% endblock %}

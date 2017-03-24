@@ -39,7 +39,7 @@ class TagsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $tag = new Tag();
+        $tag = new Tags();
         $form = $this->createForm('AppBundle\Form\TagsType', $tag);
         $form->handleRequest($request);
 
