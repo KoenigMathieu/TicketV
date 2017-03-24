@@ -33,10 +33,6 @@ class ProjetType extends AbstractType
                 'multiple' => true
             ));
 
-
-
-
-
         $builder->get('actif')
             ->addModelTransformer(new CallbackTransformer(
                 function ($actifAsString) {
