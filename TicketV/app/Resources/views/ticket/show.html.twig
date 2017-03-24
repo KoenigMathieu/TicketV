@@ -1,36 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ticket</h1>
+    <h1>#{{ ticket.idTicket }} - {{ ticket.Libelle }}</h1>
+<hr/>
+    {{ ticket.description }}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Libelle</th>
-                <td>{{ ticket.libelle }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ ticket.description }}</td>
-            </tr>
-            <tr>
-                <th>Idticket</th>
-                <td>{{ ticket.idTicket }}</td>
-            </tr>
-        </tbody>
-    </table>
+<hr/>
+    <div class="row">
+        <div class="col-md-2"><b>Projet : </b></div>
+        <div class="col-md-8">{{ ticket.idProjet.libelle }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Degré d'importance : </b></div>
+        <div class="col-md-8">{{ ticket.idDegreImportance.libelle }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Statut : </b></div>
+        <div class="col-md-8">{{ ticket.idStatut.libelle }}</div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('ticket_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <hr/>
+    <a href="{{ path('ticket_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+    <br/>
+    <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+    <div class="pull-right">
+        {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

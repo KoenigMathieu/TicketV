@@ -19,6 +19,11 @@
                 overflow-x: visible !important;
                 overflow-y: visible !important;
             }
+
+
+
+
+
         </style>
 
     </head>
@@ -53,19 +58,16 @@
     <br/>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-m-3 col-md-2 sidebar">
+            <div class="col-m-3 col-md-2 bg-faded sidebar">
                 <ul class="nav nav-sidebar">
 
-                    <li><a href="{{ path('ticket_index') }}">Gestion Tickets </a></li>
+                    <li><a href="{{ path('ticket_new') }}" {% if app.request.attributes.get('_route') == 'ticket_new' %} class="bg-primary" {% endif %} >Ajouter un ticket </a></li>
+                    <li><a href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="bg-primary" {% endif %} >Gestion Tickets </a></li>
+                    <li><a href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="bg-primary" {% endif %} >Gestion Statuts </a></li>
+                    <li><a href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} >Gestion Importance</a></li>
+                    <li><a href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="bg-primary" {% endif %} >Gestion Tags</a></li>
+                    <li><a href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} >Gestion Projet</a></li>
 
-                    <li><a href="{{ path('statut_index') }}">Gestion Statuts </a></li>
-                    <li><a href="{{ path('degreimportance_index') }}">Gestion degré d'importance</a></li>
-                    <li><a href="{{ path('tags_index') }}">Gestion Tags</a></li>
-                    <li><a href="{{ path('projet_index') }}">Gestion Projet</a></li>
-
-
-
-                    <li><a href="">Nav item again</a></li>
                     <li><a href="">One more nav</a></li>
                     <li><a href="">Another nav item</a></li>
                     <li><a href="">More navigation</a></li>
@@ -75,7 +77,7 @@
                     <li><a href="">Another nav item</a></li>
                 </ul>
             </div>
-            <div class="col-m-3 col-md-2 sidebar">
+            <div class="col-m-3 col-md-2">
                 <div class="container">
                     {% block body %}{% endblock %}
                 </div>

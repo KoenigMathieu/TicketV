@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Projet</h1>
+    <h1>{{ projet.libelle }}</h1>
 
     <div class="row">
         <div class="col-md-2"><b>Identifiant : </b></div>
         <div class="col-md-8">{{ projet.idProjet }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"><b>Libelle : </b></div>
-        <div class="col-md-8">{{ projet.libelle }}</div>
     </div>
     <div class="row">
         <div class="col-md-2"><b>Actif : </b></div>
@@ -23,6 +19,50 @@
                 {% endfor %}
             {%  endif %}</div>
     </div>
+
+    <br/>
+    <hr/>
+
+    {% if tickets and tickets|length > 0 %}
+        <h1>Tickets associés à ce projet</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Libelle</th>
+                    <th>Projet</th>
+                    <th>Importance</th>
+                    <th>Statut</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.idTicket }}</td>
+                        <td>{{ ticket.Libelle }}</td>
+                        <td>{{ ticket.idProjet.libelle }}</td>
+                        <td>{{ ticket.idDegreImportance.libelle }}</td>
+                        <td>{{ ticket.idStatut.libelle }}</td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{{ path('ticket_show', { 'idTicket': ticket.idTicket }) }}">Consulter</a></li>
+                                    <li><a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}">Modifier</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
 
     <hr/>
     <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>

@@ -67,9 +67,15 @@ class ProjetController extends Controller
     {
         $deleteForm = $this->createDeleteForm($projet);
 
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Ticket');
+
+        $tickets = $repository->findBy(["idProjet"=>$projet->getIdProjet()]);
+
         return $this->render('projet/show.html.twig', array(
             'projet' => $projet,
             'delete_form' => $deleteForm->createView(),
+            'tickets'=>$tickets
         ));
     }
 

@@ -1,41 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tickets list</h1>
-
-    <table>
-        <thead>
+    <h1>Liste des tickets</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <th>Identifiant</th>
                 <th>Libelle</th>
-                <th>Description</th>
-                <th>Idticket</th>
-                <th>Actions</th>
+                <th>Projet</th>
+                <th>Importance</th>
+                <th>Statut</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for ticket in tickets %}
-            <tr>
-                <td><a href="{{ path('ticket_show', { 'idTicket': ticket.idTicket }) }}">{{ ticket.libelle }}</a></td>
-                <td>{{ ticket.description }}</td>
-                <td>{{ ticket.idTicket }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('ticket_show', { 'idTicket': ticket.idTicket }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.idTicket }}</td>
+                    <td>{{ ticket.Libelle }}</td>
+                    <td>{{ ticket.idProjet.libelle }}</td>
+                    <td>{{ ticket.idDegreImportance.libelle }}</td>
+                    <td>{{ ticket.idStatut.libelle }}</td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
-    <ul>
-        <li>
-            <a href="{{ path('ticket_new') }}">Create a new ticket</a>
-        </li>
-    </ul>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ path('ticket_show', { 'idTicket': ticket.idTicket }) }}">Consulter</a></li>
+                                <li><a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}">Modifier</a></li>
+                                <li><a href="{{ path('ticket_delete', { 'idTicket': ticket.idTicket }) }}">Supprimer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            <td colspan="6">
+                <a href="{{ path('ticket_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter un ticket</a>
+            </td>
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}
