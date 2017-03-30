@@ -96,10 +96,10 @@
                     <li><a href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="bg-primary" {% endif %} >Accueil </a></li>
                     <li><a href="{{ path('ticket_new') }}" {% if app.request.attributes.get('_route') == 'ticket_new' %} class="bg-primary" {% endif %} >Ajouter un ticket </a></li>
                     <li><a href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="bg-primary" {% endif %} >Gestion Tickets </a></li>
+                    <li><a href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} >Gestion Projets</a></li>
                     <li><a href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="bg-primary" {% endif %} >Gestion Statuts </a></li>
-                    <li><a href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} >Gestion Importance</a></li>
+                    <li><a href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} >Gestion Importances</a></li>
                     <li><a href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="bg-primary" {% endif %} >Gestion Tags</a></li>
-                    <li><a href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} >Gestion Projet</a></li>
 
                 </ul>
             </div>
