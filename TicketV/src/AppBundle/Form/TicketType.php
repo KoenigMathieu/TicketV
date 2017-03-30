@@ -22,7 +22,7 @@ class TicketType extends AbstractType
             ->add('idDegreImportance', EntityType::class, array(
                 'class' => 'AppBundle:DegreImportance',
                 'choice_label' => 'libelle',
-                'label'=>'Degré d\'importance : '
+                'label'=>'Importance : '
             ))
 
             ->add('idProjet', EntityType::class, array(
