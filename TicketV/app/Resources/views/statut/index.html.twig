@@ -16,9 +16,9 @@
         <tbody>
         {% for statut in statuts %}
             <tr>
-                <td>{{ statut.idStatut }}</td>
-                <td>{{ statut.libelle }}</td>
-                <td>{% if statut.actif %} Oui {% else %} Non {% endif %}</td>
+                <td>{{ statut.getIdStatut() }}</td>
+                <td>{{ statut.getLibelle() }}</td>
+                <td>{% if statut.getActif() %} Oui {% else %} Non {% endif %}</td>
                 <td class="text-center">
                     <div class="dropdown">
                         <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

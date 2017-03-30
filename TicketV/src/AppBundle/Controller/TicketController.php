@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\SuiviTicket;
 use AppBundle\Entity\Ticket;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -48,6 +49,16 @@ class TicketController extends Controller
             $em->persist($ticket);
             $em->flush();
 
+            $suivi = new SuiviTicket();
+            $suivi->setDate(new \DateTime());
+            $suivi->setIdStatut($ticket->getIdStatut());
+            $suivi->setIdTicket($ticket);
+            $suivi->setIdUtilisateur($this->getUser());
+            $suivi->setRemarque("Création du ticket.");
+
+            $em->persist($suivi);
+            $em->flush();
+
             return $this->redirectToRoute('ticket_index', array('idTicket' => $ticket->getIdticket()));
         }
 
@@ -67,9 +78,15 @@ class TicketController extends Controller
     {
         $deleteForm = $this->createDeleteForm($ticket);
 
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:SuiviTicket');
+
+        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()]);
+
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
             'delete_form' => $deleteForm->createView(),
+            'suivis'=>$suivis
         ));
     }
 
@@ -90,6 +107,18 @@ class TicketController extends Controller
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $suivi = new SuiviTicket();
+        $suivi->setDate(new \DateTime());
+        $suivi->setIdStatut($ticket->getIdStatut());
+        $suivi->setIdTicket($ticket);
+        $suivi->setIdUtilisateur($this->getUser());
+        $suivi->setRemarque("Modification du ticket.");
+
+        $em->persist($suivi);
+        $em->flush();
 
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,

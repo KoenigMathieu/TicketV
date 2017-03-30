@@ -16,9 +16,9 @@
             <tbody>
             {% for degreImportance in degreImportances %}
                 <tr>
-                    <td>{{ degreImportance.idDegreImportance }}</td>
-                    <td>{{ degreImportance.libelle }}</td>
-                    <td>{% if degreImportance.actif %} Oui {% else %} Non {% endif %}</td>
+                    <td>{{ degreImportance.getIdDegreImportance() }}</td>
+                    <td>{{ degreImportance.getLibelle() }}</td>
+                    <td>{% if degreImportance.getActif() %} Oui {% else %} Non {% endif %}</td>
                     <td class="text-center">
                         <div class="dropdown">
                             <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

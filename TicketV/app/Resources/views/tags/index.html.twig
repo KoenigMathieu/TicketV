@@ -16,9 +16,9 @@
             <tbody>
             {% for tag in tags %}
                 <tr>
-                    <td>{{ tag.idTag }}</td>
-                    <td>{{ tag.libelle }}</td>
-                    <td>{% if tag.actif %} Oui {% else %} Non {% endif %}</td>
+                    <td>{{ tag.getIdTag() }}</td>
+                    <td>{{ tag.getLibelle() }}</td>
+                    <td>{% if tag.getActif() %} Oui {% else %} Non {% endif %}</td>
                     <td class="text-center">
                         <div class="dropdown">
                             <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

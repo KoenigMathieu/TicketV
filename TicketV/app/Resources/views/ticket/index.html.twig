@@ -17,11 +17,11 @@
             <tbody>
             {% for ticket in tickets %}
                 <tr>
-                    <td>{{ ticket.idTicket }}</td>
-                    <td>{{ ticket.Libelle }}</td>
-                    <td>{{ ticket.idProjet.libelle }}</td>
-                    <td>{{ ticket.idDegreImportance.libelle }}</td>
-                    <td>{{ ticket.idStatut.libelle }}</td>
+                    <td>{{ ticket.getIdTicket() }}</td>
+                    <td>{{ ticket.getLibelle() }}</td>
+                    <td>{{ ticket.getIdProjet().getlibelle() }}</td>
+                    <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
+                    <td>{{ ticket.getIdStatut().getLibelle() }}</td>
                     <td class="text-center">
                         <div class="dropdown">
                             <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

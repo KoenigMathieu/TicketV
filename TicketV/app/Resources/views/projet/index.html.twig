@@ -17,12 +17,12 @@
             <tbody>
             {% for projet in projets %}
                 <tr>
-                    <td>{{ projet.idProjet }}</td>
-                    <td>{{ projet.libelle }}</td>
-                    <td>{% if projet.actif %} Oui {% else %} Non {% endif %}</td>
-                    <td>{% if projet.idUtilisateur %}
-                        {% for utilisateur in projet.idUtilisateur %}
-                            {{ utilisateur.username }}<br/>
+                    <td>{{ projet.getIdProjet() }}</td>
+                    <td>{{ projet.getLibelle() }}</td>
+                    <td>{% if projet.getActif() %} Oui {% else %} Non {% endif %}</td>
+                    <td>{% if projet.getIdUtilisateur() %}
+                        {% for utilisateur in projet.getIdUtilisateur() %}
+                            {{ utilisateur.getUsername() }}<br/>
                         {% endfor %}
                         {%  endif %}
                     </td>

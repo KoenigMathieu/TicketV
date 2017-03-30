@@ -5,17 +5,17 @@
 
     <div class="row">
         <div class="col-md-2"><b>Identifiant : </b></div>
-        <div class="col-md-8">{{ projet.idProjet }}</div>
+        <div class="col-md-8">{{ projet.getIdProjet() }}</div>
     </div>
     <div class="row">
         <div class="col-md-2"><b>Actif : </b></div>
-        <div class="col-md-8">{% if projet.actif %} Oui {% else %} Non {% endif %}</div>
+        <div class="col-md-8">{% if projet.getActif() %} Oui {% else %} Non {% endif %}</div>
     </div>
     <div class="row">
         <div class="col-md-2"><b>Liste des utilisateurs : </b></div>
-        <div class="col-md-8">{% if projet.idUtilisateur %}
-                {% for utilisateur in projet.idUtilisateur %}
-                    {{ utilisateur.username }}<br/>
+        <div class="col-md-8">{% if projet.getIdUtilisateur() %}
+                {% for utilisateur in projet.getIdUtilisateur %}
+                    {{ utilisateur.getUsername() }}<br/>
                 {% endfor %}
             {%  endif %}</div>
     </div>
@@ -40,11 +40,11 @@
                 <tbody>
                 {% for ticket in tickets %}
                     <tr>
-                        <td>{{ ticket.idTicket }}</td>
-                        <td>{{ ticket.Libelle }}</td>
-                        <td>{{ ticket.idProjet.libelle }}</td>
-                        <td>{{ ticket.idDegreImportance.libelle }}</td>
-                        <td>{{ ticket.idStatut.libelle }}</td>
+                        <td>{{ ticket.getIdTicket() }}</td>
+                        <td>{{ ticket.getLibelle() }}</td>
+                        <td>{{ ticket.getIdProjet().getlibelle() }}</td>
+                        <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
+                        <td>{{ ticket.getIdStatut().getLibelle() }}</td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

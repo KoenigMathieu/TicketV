@@ -5,15 +5,15 @@
 
     <div class="row">
         <div class="col-md-2"><b>Identifiant : </b></div>
-        <div class="col-md-8">{{ tag.idTag }}</div>
+        <div class="col-md-8">{{ tag.getIdTag() }}</div>
     </div>
     <div class="row">
         <div class="col-md-2"><b>Libelle : </b></div>
-        <div class="col-md-8">{{ tag.libelle }}</div>
+        <div class="col-md-8">{{ tag.getLibelle() }}</div>
     </div>
     <div class="row">
         <div class="col-md-2"><b>Actif : </b></div>
-        <div class="col-md-8">{% if tag.actif %} Oui {% else %} Non {% endif %}</div>
+        <div class="col-md-8">{% if tag.getActif() %} Oui {% else %} Non {% endif %}</div>
     </div>
 
 
