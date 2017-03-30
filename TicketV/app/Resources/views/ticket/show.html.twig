@@ -3,7 +3,7 @@
 {% block body %}
     <h1>#{{ ticket.idTicket }} - {{ ticket.Libelle }}</h1>
 <hr/>
-    {{ ticket.description }}
+    {{ ticket.description|nl2br }}
 
 <hr/>
     <div class="row">
