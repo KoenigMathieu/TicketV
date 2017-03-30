@@ -45,9 +45,8 @@ class TicketController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);
-            $em->flush();
+            $this->getDoctrine()->getManager()->persist($ticket);
+            $this->getDoctrine()->getManager()->flush();
 
             $suivi = new SuiviTicket();
             $suivi->setDate(new \DateTime());
@@ -56,8 +55,8 @@ class TicketController extends Controller
             $suivi->setIdUtilisateur($this->getUser());
             $suivi->setRemarque("Création du ticket.");
 
-            $em->persist($suivi);
-            $em->flush();
+            $this->getDoctrine()->getManager()->persist($suivi);
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ticket_index', array('idTicket' => $ticket->getIdticket()));
         }
@@ -81,7 +80,7 @@ class TicketController extends Controller
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:SuiviTicket');
 
-        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()]);
+        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()],['idSuiviTicket' => 'DESC']);
 
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
@@ -103,22 +102,19 @@ class TicketController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $suivi = new SuiviTicket();
+            $suivi->setDate(new \DateTime());
+            $suivi->setIdStatut($editForm["idStatut"]->getData());
+            $suivi->setIdTicket($ticket);
+            $suivi->setIdUtilisateur($this->getUser());
+            $suivi->setRemarque("Modification du ticket.");
+
+            $this->getDoctrine()->getManager()->persist($suivi);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
-
-        $em = $this->getDoctrine()->getManager();
-
-        $suivi = new SuiviTicket();
-        $suivi->setDate(new \DateTime());
-        $suivi->setIdStatut($ticket->getIdStatut());
-        $suivi->setIdTicket($ticket);
-        $suivi->setIdUtilisateur($this->getUser());
-        $suivi->setRemarque("Modification du ticket.");
-
-        $em->persist($suivi);
-        $em->flush();
 
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,

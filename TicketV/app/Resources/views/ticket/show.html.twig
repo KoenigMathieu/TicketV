@@ -28,11 +28,12 @@
     {% for suivi in suivis %}
         <div class="suivi_ticket">
             <div class="row">
-                <div class="col-md-2">
-                    <b>{{ suivi.getIdUtilisateur().username }}</b> - {{ suivi.getDate()|date('d/m/Y') }}<br/>
+                <div class="col-md-3">
+                    <b>{{ suivi.getIdUtilisateur().username }}</b>,
+                    le {{ suivi.getDate()|date('d/m/Y à H:m:i') }}<br/>
                     {{ suivi.getIdStatut().getLibelle() }}
                 </div>
-                <div class="col-md-8">{{ suivi.getRemarque() }}</div>
+                <div class="col-md-7">{{ suivi.getRemarque() }}</div>
             </div>
         </div>
 
