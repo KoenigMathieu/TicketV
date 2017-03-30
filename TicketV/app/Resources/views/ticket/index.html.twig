@@ -3,17 +3,17 @@
 {% block body %}
     <h1>Liste des tickets</h1>
     <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
+        <table id="table" class="table table-striped">
+            <thead class="thead-inverse">
             <tr>
-                <th>Identifiant</th>
+                <th>#</th>
                 <th>Libelle</th>
                 <th>Projet</th>
                 <th>Importance</th>
                 <th>Statut</th>
                 <th></th>
             </tr>
-            </thead>
+            </thead >
             <tbody>
             {% for ticket in tickets %}
                 <tr>
