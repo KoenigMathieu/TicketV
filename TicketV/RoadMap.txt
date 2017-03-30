@@ -1,0 +1,8 @@
+RoadMap : 
+
+Classe Mise à jour
+crud mise à jour
+Vue utile :
+	- Accueil avec ticket prochaine mise à jour
+	- Liste ticket par personne avec filtre statut
+	- 
