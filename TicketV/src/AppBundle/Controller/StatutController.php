@@ -48,7 +48,7 @@ class StatutController extends Controller
             $em->persist($statut);
             $em->flush();
 
-            return $this->redirectToRoute('statut_show', array('idStatut' => $statut->getIdstatut()));
+            return $this->redirectToRoute('statut_index', array('idStatut' => $statut->getIdstatut()));
         }
 
         return $this->render('statut/new.html.twig', array(
@@ -88,7 +88,7 @@ class StatutController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('statut_edit', array('idStatut' => $statut->getIdstatut()));
+            return $this->redirectToRoute('statut_show', array('idStatut' => $statut->getIdstatut()));
         }
 
         return $this->render('statut/edit.html.twig', array(

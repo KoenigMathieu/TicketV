@@ -48,7 +48,7 @@ class TagsController extends Controller
             $em->persist($tag);
             $em->flush();
 
-            return $this->redirectToRoute('tags_show', array('idTag' => $tag->getIdtag()));
+            return $this->redirectToRoute('tags_index', array('idTag' => $tag->getIdtag()));
         }
 
         return $this->render('tags/new.html.twig', array(
@@ -88,7 +88,7 @@ class TagsController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('tags_edit', array('idTag' => $tag->getIdtag()));
+            return $this->redirectToRoute('tags_show', array('idTag' => $tag->getIdtag()));
         }
 
         return $this->render('tags/edit.html.twig', array(

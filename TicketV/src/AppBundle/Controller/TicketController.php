@@ -48,7 +48,7 @@ class TicketController extends Controller
             $em->persist($ticket);
             $em->flush();
 
-            return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
+            return $this->redirectToRoute('ticket_index', array('idTicket' => $ticket->getIdticket()));
         }
 
         return $this->render('ticket/new.html.twig', array(
@@ -88,7 +88,7 @@ class TicketController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ticket_edit', array('idTicket' => $ticket->getIdticket()));
+            return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
 
         return $this->render('ticket/edit.html.twig', array(

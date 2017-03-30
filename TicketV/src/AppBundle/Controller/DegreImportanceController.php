@@ -48,7 +48,7 @@ class DegreImportanceController extends Controller
             $em->persist($degreImportance);
             $em->flush();
 
-            return $this->redirectToRoute('degreimportance_show', array('idDegreImportance' => $degreImportance->getIddegreimportance()));
+            return $this->redirectToRoute('degreimportance_index', array('idDegreImportance' => $degreImportance->getIddegreimportance()));
         }
 
         return $this->render('degreimportance/new.html.twig', array(
@@ -88,7 +88,7 @@ class DegreImportanceController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('degreimportance_edit', array('idDegreImportance' => $degreImportance->getIddegreimportance()));
+            return $this->redirectToRoute('degreimportance_show', array('idDegreImportance' => $degreImportance->getIddegreimportance()));
         }
 
         return $this->render('degreimportance/edit.html.twig', array(

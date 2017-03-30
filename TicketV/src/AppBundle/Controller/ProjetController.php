@@ -48,7 +48,7 @@ class ProjetController extends Controller
             $em->persist($projet);
             $em->flush();
 
-            return $this->redirectToRoute('projet_show', array('idProjet' => $projet->getIdprojet()));
+            return $this->redirectToRoute('projet_index', array('idProjet' => $projet->getIdprojet()));
         }
 
         return $this->render('projet/new.html.twig', array(
@@ -94,7 +94,7 @@ class ProjetController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('projet_edit', array('idProjet' => $projet->getIdprojet()));
+            return $this->redirectToRoute('projet_show', array('idProjet' => $projet->getIdprojet()));
         }
 
         return $this->render('projet/edit.html.twig', array(
