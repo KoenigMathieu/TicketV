@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ticket edit</h1>
+    <h1>Modification du Ticket </h1>
 
     {{ form_start(edit_form) }}
 
@@ -9,6 +9,21 @@
 
     {{ form_widget(edit_form) }}
 
+    <hr/>
+    <b> Suivi du ticket : </b>
+    {% for suivi in ticket.getSuiviTicket() %}
+        <div class="suivi_ticket">
+            <div class="row">
+                <div class="col-md-3">
+                    <b>{{ suivi.getIdUtilisateur().username }}</b>,
+                    le {{ suivi.getDate()|date('d/m/Y à H:m:i') }}<br/>
+                    {{ suivi.getIdStatut().getLibelle() }}
+                </div>
+                <div class="col-md-7">{{ suivi.getRemarque() }}</div>
+            </div>
+        </div>
+
+    {% endfor %}
     <hr/>
     <div class="pull-right">
         <div class="row">
