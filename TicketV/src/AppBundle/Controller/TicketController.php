@@ -74,12 +74,9 @@ class TicketController extends Controller
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:SuiviTicket');
 
-        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()],['idSuiviTicket' => 'DESC']);
-
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
-            'delete_form' => $deleteForm->createView(),
-            'suivis'=>$suivis
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -124,7 +121,7 @@ class TicketController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            $this->deleteSuiviByTicket($ticket);
+
 
             $em->remove($ticket);
 
@@ -175,25 +172,4 @@ class TicketController extends Controller
         $em->flush();
     }
 
-    /**
-     * Delete Suivi by Ticket
-     *
-     * @param String $remarque
-     * @return Ticket $ticket
-     *
-     */
-    private function deleteSuiviByTicket(Ticket $ticket){
-
-        $em =  $this->getDoctrine()->getManager();
-
-        $repository = $em->getRepository('AppBundle:SuiviTicket');
-
-        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()]);
-
-        foreach ($suivis as $suivi){
-            $em->remove($suivi);
-        }
-
-
-    }
 }

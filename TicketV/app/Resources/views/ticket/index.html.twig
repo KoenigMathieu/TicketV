@@ -10,6 +10,7 @@
                 <th>Libelle</th>
                 <th>Projet</th>
                 <th>Importance</th>
+                <th>Affecté à</th>
                 <th>Statut</th>
                 <th></th>
             </tr>
@@ -21,6 +22,12 @@
                     <td>{{ ticket.getLibelle() }}</td>
                     <td>{{ ticket.getIdProjet().getlibelle() }}</td>
                     <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
+                    <td> {% if ticket.getSuiviTicket()|length >0 %}
+                            {{ ticket.getSuiviTicket[0].getIdUtilisateur().getUsername() }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
                     <td>{{ ticket.getIdStatut().getLibelle() }}</td>
                     <td class="text-center">
                         <div class="dropdown">
@@ -37,7 +44,7 @@
                     </td>
                 </tr>
             {% endfor %}
-            <td colspan="6">
+            <td colspan="7">
                 <a href="{{ path('ticket_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter un ticket</a>
             </td>
             </tbody>

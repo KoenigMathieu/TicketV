@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 30, 2017 at 03:51 PM
+-- Generation Time: Mar 31, 2017 at 11:21 AM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.27
 
@@ -154,7 +154,8 @@ INSERT INTO `statut` (`id_statut`, `libelle`, `actif`) VALUES
 (3, 'En développement', '1'),
 (4, 'Livré à l\'assurance qualité', '1'),
 (5, 'Finalisé', '1'),
-(6, 'Sans suite', '1');
+(6, 'Sans suite', '1'),
+(7, 'Clos', '1');
 
 -- --------------------------------------------------------
 
@@ -170,6 +171,24 @@ CREATE TABLE `suivi_ticket` (
   `date` datetime NOT NULL,
   `remarque` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `suivi_ticket`
+--
+
+INSERT INTO `suivi_ticket` (`id_suivi_ticket`, `id_statut`, `id_ticket`, `id_utilisateur`, `date`, `remarque`) VALUES
+(7, 2, 3, 2, '2017-03-31 10:50:00', 'Création du ticket.'),
+(9, 2, 3, 1, '2017-03-31 09:05:02', 'Modification du ticket.'),
+(10, 1, 9, 1, '2017-03-31 09:18:51', 'Création du ticket.'),
+(11, 1, 10, 1, '2017-03-31 09:19:01', 'Création du ticket.'),
+(12, 1, 11, 1, '2017-03-31 09:19:09', 'Création du ticket.'),
+(13, 1, 12, 1, '2017-03-31 09:19:32', 'Création du ticket.'),
+(14, 1, 13, 1, '2017-03-31 09:19:41', 'Création du ticket.'),
+(15, 1, 14, 1, '2017-03-31 09:19:49', 'Création du ticket.'),
+(16, 1, 15, 1, '2017-03-31 09:19:57', 'Création du ticket.'),
+(17, 1, 16, 1, '2017-03-31 09:20:04', 'Création du ticket.'),
+(18, 1, 17, 1, '2017-03-31 09:20:12', 'Création du ticket.'),
+(19, 1, 18, 1, '2017-03-31 09:20:20', 'Création du ticket.');
 
 -- --------------------------------------------------------
 
@@ -213,9 +232,17 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id_ticket`, `id_degre_importance`, `id_projet`, `id_statut`, `libelle`, `description`) VALUES
-(1, 2, 1, 1, 'Interface utilisateur', 'Développement de l\'interface utilisateur de TicketV'),
-(2, 2, 1, 1, 'Insertion d\'un suivi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(3, 4, 1, 2, 'Gestion des mises à jour', 'Permettre la gestion des mises à jour\r\n- Ajouter table mise à jour\r\n- Modifier les entités\r\n- Modifier le twig');
+(3, 4, 1, 2, 'Gestion des mises à jour', 'Permettre la gestion des mises à jour :\r\n- Ajouter table mise à jour\r\n- Modifier les entités\r\n- Générer le CRUD\r\n- Modifier le twig\r\n\r\nAttention : Vérifier qu\'on ne perde pas les twig déjà modifiés'),
+(9, 2, 1, 1, 'Ticket 1', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(10, 2, 1, 1, 'Ticket 2', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(11, 2, 1, 1, 'Ticket 3', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(12, 2, 1, 1, 'Ticket 4', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(13, 2, 1, 1, 'Ticket 5', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(14, 2, 1, 1, 'Ticket 6', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(15, 2, 1, 1, 'Ticket 7', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(16, 2, 1, 1, 'Ticket 8', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.\r\n\r\nThe issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(17, 2, 1, 1, 'Ticket 9', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.  The issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.'),
+(18, 2, 1, 1, 'Ticket 10', 'I have been building a multi-site micro CMS using Symfony2. To order the pages I have created a Hierarchical tree traversal system. Because there are multiple sites in the database, each page has its own id field too as the left and right values are not unique. On the administration side, there was no issue. In 2011 I wrote an admin system for a besboke eCommerce site in Symfony 1.4 and created a full tree traversal system with jQuery drag and drop ordering. So a few weeks ago I ported my old code into Symfony2 which was remarkably easy as there are many similarities between the two frameworks.  The issue came on the front end. I am using the Symfony2 menu bundle from KnpLabswhich works a treat but in order to generate the side navigation I need to get the current active page and all its children. I added a OneToMany relationship on the pages entity to itself to get the children pages with one query:e into Symfony2 which only took a day ish.');
 
 -- --------------------------------------------------------
 
@@ -233,10 +260,21 @@ CREATE TABLE `ticket_tags` (
 --
 
 INSERT INTO `ticket_tags` (`ticket_id_ticket`, `tags_id_tag`) VALUES
-(1, 1),
-(1, 2),
-(2, 1),
-(3, 1);
+(3, 2),
+(9, 1),
+(10, 3),
+(11, 3),
+(12, 2),
+(12, 3),
+(13, 1),
+(13, 4),
+(14, 1),
+(15, 3),
+(16, 4),
+(17, 2),
+(18, 1),
+(18, 2),
+(18, 3);
 
 --
 -- Indexes for dumped tables
@@ -358,12 +396,12 @@ ALTER TABLE `projet`
 -- AUTO_INCREMENT for table `statut`
 --
 ALTER TABLE `statut`
-  MODIFY `id_statut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_statut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `suivi_ticket`
 --
 ALTER TABLE `suivi_ticket`
-  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `tags`
 --
@@ -373,7 +411,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --

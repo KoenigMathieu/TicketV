@@ -80,12 +80,26 @@ class Ticket
      */
     private $tagsTag;
 
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"remove"}))
+     * @ORM\OrderBy({"date" = "ASC"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
+     * })
+     */
+    private $suiviTickets;
+
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->tagsTag = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->suiviTickets = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -251,5 +265,39 @@ class Ticket
     public function getTagsTag()
     {
         return $this->tagsTag;
+    }
+
+    /**
+     * Add suiviTicket
+     *
+     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
+     *
+     * @return Ticket
+     */
+    public function addSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
+    {
+        $this->suiviTickets[] = $suiviTicket;
+
+        return $this;
+    }
+
+    /**
+     * Remove suiviTicket
+     *
+     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
+     */
+    public function removeSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
+    {
+        $this->tagsTag->removeElement($suiviTicket);
+    }
+
+    /**
+     * Get tagsTag
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSuiviTicket()
+    {
+        return $this->suiviTickets;
     }
 }
