@@ -148,28 +148,6 @@ class TicketController extends Controller
         ;
     }
 
-    /**
-     * Insert suivi for the ticket
-     *
-     * @param Form $form
-     * @param Ticket $ticket
-     * @param String $remarque
-     * @return SuiviTicket
-     *
-     */
-    private function insertSuivi(Form $form,Ticket $ticket,$remarque){
-
-        $em =  $this->getDoctrine()->getManager();
-
-        $suivi = new SuiviTicket();
-        $suivi->setDate(new \DateTime());
-        $suivi->setIdStatut($form["idStatut"]->getData());
-        $suivi->setIdTicket($ticket);
-        $suivi->setIdUtilisateur($this->getUser());
-        $suivi->setRemarque($remarque);
-
-        $em->persist($suivi);
-        $em->flush();
-    }
+    
 
 }
