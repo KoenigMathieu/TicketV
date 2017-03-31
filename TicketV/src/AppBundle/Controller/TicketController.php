@@ -148,6 +148,7 @@ class TicketController extends Controller
             ->getForm()
         ;
     }
+
     /**
      * Insert suivi for the ticket
      *
