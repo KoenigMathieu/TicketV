@@ -55,9 +55,6 @@
                 border-left: 2px solid #286090;
             }
 
-            .icon{
-                padding:5px;
-            }
 
         </style>
 
@@ -96,13 +93,13 @@
         <div class="row">
             <div class="col-m-3 col-md-2 bg-faded sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="bg-primary" {% endif %} ><span class="icon glyphicon  glyphicon-home"></span> Accueil </a></li>
-                    <li><a href="{{ path('ticket_new') }}" {% if app.request.attributes.get('_route') == 'ticket_new' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-plus"></span> Ajouter un ticket </a></li>
-                    <li><a href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-inbox"></span> Gestion Tickets </a></li>
-                    <li><a href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-briefcase"></span> Gestion Projets</a></li>
-                    <li><a href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-tasks"></span> Gestion Statuts </a></li>
-                    <li><a href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-alert"></span> Gestion Importances</a></li>
-                    <li><a href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="bg-primary" {% endif %} ><span class="icon glyphicon glyphicon-tags"></span> Gestion Tags</a></li>
+                    <li><a href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="bg-primary" {% endif %} >Accueil </a></li>
+                    <li><a href="{{ path('ticket_new') }}" {% if app.request.attributes.get('_route') == 'ticket_new' %} class="bg-primary" {% endif %} >Ajouter un ticket </a></li>
+                    <li><a href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="bg-primary" {% endif %} >Gestion Tickets </a></li>
+                    <li><a href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} >Gestion Projets</a></li>
+                    <li><a href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="bg-primary" {% endif %} >Gestion Statuts </a></li>
+                    <li><a href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} >Gestion Importances</a></li>
+                    <li><a href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="bg-primary" {% endif %} >Gestion Tags</a></li>
 
                 </ul>
             </div>
