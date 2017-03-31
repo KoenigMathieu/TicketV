@@ -6,7 +6,9 @@ use AppBundle\Entity\SuiviTicket;
 use AppBundle\Entity\Ticket;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Ticket controller.
@@ -48,15 +50,7 @@ class TicketController extends Controller
             $this->getDoctrine()->getManager()->persist($ticket);
             $this->getDoctrine()->getManager()->flush();
 
-            $suivi = new SuiviTicket();
-            $suivi->setDate(new \DateTime());
-            $suivi->setIdStatut($ticket->getIdStatut());
-            $suivi->setIdTicket($ticket);
-            $suivi->setIdUtilisateur($this->getUser());
-            $suivi->setRemarque("Création du ticket.");
-
-            $this->getDoctrine()->getManager()->persist($suivi);
-            $this->getDoctrine()->getManager()->flush();
+            $this->insertSuivi($form,$ticket,"Création du ticket.");
 
             return $this->redirectToRoute('ticket_index', array('idTicket' => $ticket->getIdticket()));
         }
@@ -103,15 +97,7 @@ class TicketController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $suivi = new SuiviTicket();
-            $suivi->setDate(new \DateTime());
-            $suivi->setIdStatut($editForm["idStatut"]->getData());
-            $suivi->setIdTicket($ticket);
-            $suivi->setIdUtilisateur($this->getUser());
-            $suivi->setRemarque("Modification du ticket.");
-
-            $this->getDoctrine()->getManager()->persist($suivi);
-            $this->getDoctrine()->getManager()->flush();
+            $this->insertSuivi($editForm,$ticket,"Modification du ticket.");
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
@@ -157,5 +143,24 @@ class TicketController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    /**
+     * Insert suivi for the ticket
+     *
+     * @param String $remarque
+     * @return SuiviTicket
+     *
+     */
+    private function insertSuivi(Form $editForm,Ticket $ticket,$remarque){
+
+        $suivi = new SuiviTicket();
+        $suivi->setDate(new \DateTime());
+        $suivi->setIdStatut($editForm["idStatut"]->getData());
+        $suivi->setIdTicket($ticket);
+        $suivi->setIdUtilisateur($this->getUser());
+        $suivi->setRemarque($remarque);
+
+        $this->getDoctrine()->getManager()->persist($suivi);
+        $this->getDoctrine()->getManager()->flush();
     }
 }
