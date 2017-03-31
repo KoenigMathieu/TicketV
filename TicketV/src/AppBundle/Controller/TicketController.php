@@ -121,8 +121,15 @@ class TicketController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+
+            $this->deleteSuiviByTicket($ticket);
+
             $em->remove($ticket);
+
+
+
             $em->flush();
         }
 
@@ -147,20 +154,46 @@ class TicketController extends Controller
     /**
      * Insert suivi for the ticket
      *
+     * @param Form $form
+     * @param Ticket $ticket
      * @param String $remarque
      * @return SuiviTicket
      *
      */
-    private function insertSuivi(Form $editForm,Ticket $ticket,$remarque){
+    private function insertSuivi(Form $form,Ticket $ticket,$remarque){
+
+        $em =  $this->getDoctrine()->getManager();
 
         $suivi = new SuiviTicket();
         $suivi->setDate(new \DateTime());
-        $suivi->setIdStatut($editForm["idStatut"]->getData());
+        $suivi->setIdStatut($form["idStatut"]->getData());
         $suivi->setIdTicket($ticket);
         $suivi->setIdUtilisateur($this->getUser());
         $suivi->setRemarque($remarque);
 
-        $this->getDoctrine()->getManager()->persist($suivi);
-        $this->getDoctrine()->getManager()->flush();
+        $em->persist($suivi);
+        $em->flush();
+    }
+
+    /**
+     * Delete Suivi by Ticket
+     *
+     * @param String $remarque
+     * @return Ticket $ticket
+     *
+     */
+    private function deleteSuiviByTicket(Ticket $ticket){
+
+        $em =  $this->getDoctrine()->getManager();
+
+        $repository = $em->getRepository('AppBundle:SuiviTicket');
+
+        $suivis = $repository->findBy(["idTicket"=>$ticket->getIdTicket()]);
+
+        foreach ($suivis as $suivi){
+            $em->remove($suivi);
+        }
+
+
     }
 }
