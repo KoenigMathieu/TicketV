@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <b>{{ suivi.getIdUtilisateur().username }}</b>,
-                    le {{ suivi.getDate()|date('d/m/Y à H:m:i') }}<br/>
+                    le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
                     {{ suivi.getIdStatut().getLibelle() }}
                 </div>
                 <div class="col-md-7">{{ suivi.getRemarque() }}</div>

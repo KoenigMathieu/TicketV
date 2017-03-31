@@ -47,10 +47,12 @@ class TicketController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->persist($ticket);
-            $this->getDoctrine()->getManager()->flush();
 
-            $this->insertSuivi($form,$ticket,"Création du ticket.");
+            $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Création du ticket du ticket.");;
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ticket);
+            $em->flush();
 
             return $this->redirectToRoute('ticket_index', array('idTicket' => $ticket->getIdticket()));
         }
@@ -94,7 +96,8 @@ class TicketController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $this->insertSuivi($editForm,$ticket,"Modification du ticket.");
+           $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Modification du ticket.");
+           $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
@@ -121,11 +124,7 @@ class TicketController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-
-
             $em->remove($ticket);
-
-
 
             $em->flush();
         }

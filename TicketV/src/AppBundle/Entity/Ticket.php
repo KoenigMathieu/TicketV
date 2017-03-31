@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User;
 
 /**
  * Ticket
@@ -84,7 +85,7 @@ class Ticket
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"remove"}))
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"persist","remove"}))
      * @ORM\OrderBy({"date" = "DESC"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
@@ -299,5 +300,27 @@ class Ticket
     public function getSuiviTicket()
     {
         return $this->suiviTickets;
+    }
+
+    /**
+     * Add suiviTicket
+     *
+     * @param \AppBundle\Entity\FosUser $user
+     * @param String $remarque
+     *
+     * @return Ticket
+     */
+    public function addSuiviTicketWithUserAndRemarque(User $user,$remarque)
+    {
+        $suiviTicket = new SuiviTicket();
+        $suiviTicket->setDate(new \DateTime());
+        $suiviTicket->setIdStatut($this->getIdStatut());
+        $suiviTicket->setIdUtilisateur($user);
+        $suiviTicket->setIdTicket($this);
+        $suiviTicket->setRemarque($remarque);
+
+        $this->suiviTickets[] = $suiviTicket;
+
+        return $this;
     }
 }
