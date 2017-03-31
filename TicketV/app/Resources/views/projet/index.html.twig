@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="main">
     <h1>Liste des projets</h1>
 
     <div class="table-responsive">
@@ -41,13 +42,12 @@
                     </td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td colspan="5">
-                    <a href="{{ path('projet_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau projet</a>
-                </td>
-            </tr>
             </tbody>
 
         </table>
     </div>
+</div>
+<div class="bottom_bar">
+    <a href="{{ path('projet_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau projet</a>
+</div>
 {% endblock %}

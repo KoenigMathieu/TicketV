@@ -1,29 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tag</h1>
+    <div class="main">
+        <h1>Tag</h1>
 
-    <div class="row">
-        <div class="col-md-2"><b>Identifiant : </b></div>
-        <div class="col-md-8">{{ tag.getIdTag() }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"><b>Libelle : </b></div>
-        <div class="col-md-8">{{ tag.getLibelle() }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"><b>Actif : </b></div>
-        <div class="col-md-8">{% if tag.getActif() %} Oui {% else %} Non {% endif %}</div>
+        <div class="row">
+            <div class="col-md-2"><b>Identifiant : </b></div>
+            <div class="col-md-8">{{ tag.getIdTag() }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Libelle : </b></div>
+            <div class="col-md-8">{{ tag.getLibelle() }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Actif : </b></div>
+            <div class="col-md-8">{% if tag.getActif() %} Oui {% else %} Non {% endif %}</div>
+        </div>
     </div>
 
 
-    <hr/>
-    <a href="{{ path('tags_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
-    <br/>
-    <a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
-    <div class="pull-right">
-        {{ form_start(delete_form) }}
-        <input class="btn btn-primary" type="submit" value="Supprimer">
-        {{ form_end(delete_form) }}
+    <div class="bottom_bar">
+        <a href="{{ path('tags_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+        <a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+        <div class="pull-right">
+            {{ form_start(delete_form) }}
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </div>
     </div>
 {% endblock %}

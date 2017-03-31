@@ -1,50 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>#{{ ticket.idTicket }} - {{ ticket.Libelle }}</h1>
-<hr/>
-    <div class="row">
-        <div class="col-md-2"><b>Projet : </b></div>
-        <div class="col-md-8">{{ ticket.getIdProjet().getLibelle() }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"><b>Importance : </b></div>
-        <div class="col-md-8">{{ ticket.getIdDegreImportance().getLibelle() }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"><b>Statut : </b></div>
-        <div class="col-md-8">{{ ticket.getIdStatut().getlibelle() }}</div>
-    </div>
-
-    <hr/>
-
-    <b> Description : </b>
-    <div class="ticket_desc">
-        {{ ticket.getDescription()|nl2br }}
-    </div>
-
-    <hr/>
-    <b> Suivi du ticket : </b>
-    {% for suivi in ticket.getSuiviTicket() %}
-        <div class="suivi_ticket">
-            <div class="row">
-                <div class="col-md-3">
-                    <b>{{ suivi.getIdUtilisateur().username }}</b>,
-                    le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
-                    {{ suivi.getIdStatut().getLibelle() }}
-                </div>
-                <div class="col-md-7">{{ suivi.getRemarque() }}</div>
-            </div>
+    <div class="main">
+        <h1>#{{ ticket.idTicket }} - {{ ticket.Libelle }}</h1>
+        <hr/>
+        <div class="row">
+            <div class="col-md-2"><b>Projet : </b></div>
+            <div class="col-md-8">{{ ticket.getIdProjet().getLibelle() }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Importance : </b></div>
+            <div class="col-md-8">{{ ticket.getIdDegreImportance().getLibelle() }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Statut : </b></div>
+            <div class="col-md-8">{{ ticket.getIdStatut().getlibelle() }}</div>
         </div>
 
-    {% endfor %}
-    <hr/>
-    <a href="{{ path('ticket_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
-    <br/>
-    <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
-    <div class="pull-right">
-        {{ form_start(delete_form) }}
-        <input class="btn btn-primary" type="submit" value="Supprimer">
-        {{ form_end(delete_form) }}
+        <hr/>
+
+        <b> Description : </b>
+        <div class="ticket_desc">
+            {{ ticket.getDescription()|nl2br }}
+        </div>
+
+        <hr/>
+        <b> Suivi du ticket : </b>
+        {% for suivi in ticket.getSuiviTicket() %}
+            <div class="suivi_ticket">
+                <div class="row">
+                    <div class="col-md-3">
+                        <b>{{ suivi.getIdUtilisateur().username }}</b>,
+                        le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
+                        {{ suivi.getIdStatut().getLibelle() }}
+                    </div>
+                    <div class="col-md-7">{{ suivi.getRemarque() }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+        <hr/>
+
+        <br/>
+    </div>
+
+    <div class="bottom_bar">
+        <a href="{{ path('ticket_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+        <a href="{{ path('ticket_edit', { 'idTicket': ticket.idTicket }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+        <div class="pull-right">
+            {{ form_start(delete_form) }}
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </div>
     </div>
 {% endblock %}

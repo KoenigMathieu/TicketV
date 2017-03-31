@@ -1,46 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste des tags</h1>
+    <div class="main">
+        <h1>Liste des tags</h1>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Libelle</th>
-                <th>Actif</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for tag in tags %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <td>{{ tag.getIdTag() }}</td>
-                    <td>{{ tag.getLibelle() }}</td>
-                    <td>{% if tag.getActif() %} Oui {% else %} Non {% endif %}</td>
-                    <td class="text-center">
-                        <div class="dropdown">
-                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                                <li><a href="{{ path('tags_show', { 'idTag': tag.idTag }) }}">Consulter</a></li>
-                                <li><a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}">Modifier</a></li>
-                                <li><a href="{{ path('tags_delete', { 'idTag': tag.idTag }) }}">Supprimer</a></li>
-                            </ul>
-                        </div>
-                    </td>
+                    <th>#</th>
+                    <th>Libelle</th>
+                    <th>Actif</th>
+                    <th></th>
                 </tr>
-            {% endfor %}
-            <tr>
-                <td colspan="4">
-                    <a href="{{ path('tags_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau tag</a>
-                </td>
-            </tr>
-            </tbody>
+                </thead>
+                <tbody>
+                {% for tag in tags %}
+                    <tr>
+                        <td>{{ tag.getIdTag() }}</td>
+                        <td>{{ tag.getLibelle() }}</td>
+                        <td>{% if tag.getActif() %} Oui {% else %} Non {% endif %}</td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
-        </table>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{{ path('tags_show', { 'idTag': tag.idTag }) }}">Consulter</a></li>
+                                    <li><a href="{{ path('tags_edit', { 'idTag': tag.idTag }) }}">Modifier</a></li>
+                                    <li><a href="{{ path('tags_delete', { 'idTag': tag.idTag }) }}">Supprimer</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+             </tbody>
+            </table>
+        </div>
     </div>
+<div class="bottom_bar">
+    <a href="{{ path('tags_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau tag</a>
+</div>
 {% endblock %}

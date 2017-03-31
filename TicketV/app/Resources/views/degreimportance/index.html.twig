@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="main">
     <h1>Liste des degré d'importance</h1>
 
     <div class="table-responsive">
@@ -34,13 +35,12 @@
                     </td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td colspan="4">
-                    <a href="{{ path('degreimportance_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau degré d'importance</a>
-                </td>
-            </tr>
             </tbody>
 
         </table>
     </div>
+</div>
+<div class="bottom_bar">
+    <a href="{{ path('degreimportance_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer un nouveau degré d'importance</a>
+</div>
 {% endblock %}

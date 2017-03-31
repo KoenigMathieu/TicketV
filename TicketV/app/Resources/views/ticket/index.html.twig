@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="main">
     <h1>Liste des tickets</h1>
     <div class="table-responsive">
         <table id="table" class="table table-striped">
@@ -44,11 +45,11 @@
                     </td>
                 </tr>
             {% endfor %}
-            <td colspan="7">
-                <a href="{{ path('ticket_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter un ticket</a>
-            </td>
             </tbody>
         </table>
     </div>
-
+</div>
+<div class="bottom_bar">
+    <a href="{{ path('ticket_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter un ticket</a>
+</div>
 {% endblock %}

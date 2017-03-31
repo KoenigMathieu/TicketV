@@ -1,28 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Modification du tags</h1>
 
-    {{ form_start(edit_form) }}
+    <div class="main">
+        <h1>Modification du tags</h1>
 
-    {% form_theme edit_form 'form/fields.html.twig' %}
+        {{ form_start(edit_form) }}
 
-    {{ form_widget(edit_form) }}
+        {% form_theme edit_form 'form/fields.html.twig' %}
 
-    <hr/>
-    <div class="pull-right">
-        <div class="row">
-            <div class="col-md-5">
-                <input class="btn btn-primary" type="submit" value="Modifier" />
-                {{ form_end(edit_form) }}
-            </div>
-            <div class="col-md-5">
-                {{ form_start(delete_form) }}
-                <input class="btn btn-primary" type="submit" value="Supprimer">
-                {{ form_end(delete_form) }}
+        {{ form_widget(edit_form) }}
+
+    </div>
+
+    <div class="bottom_bar">
+        <a href="{{ path('tags_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+        <div class="pull-right">
+            <div class="row">
+                <div class="col-md-5">
+                    <input class="btn btn-primary" type="submit" value="Modifier" />
+                    {{ form_end(edit_form) }}
+                </div>
+                <div class="col-md-5">
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-primary" type="submit" value="Supprimer">
+                    {{ form_end(delete_form) }}
+                </div>
             </div>
         </div>
     </div>
-    <a href="{{ path('tags_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
 
+
+
+    </div>
 {% endblock %}

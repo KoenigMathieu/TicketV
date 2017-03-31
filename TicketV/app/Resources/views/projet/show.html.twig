@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="main">
     <h1>{{ projet.libelle }}</h1>
 
     <div class="row">
@@ -64,13 +65,15 @@
         </div>
     {% endif %}
 
-    <hr/>
+</div>
+
+<div class="bottom_bar">
     <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
-    <br/>
     <a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
     <div class="pull-right">
         {{ form_start(delete_form) }}
         <input class="btn btn-primary" type="submit" value="Supprimer">
         {{ form_end(delete_form) }}
     </div>
+</div>
 {% endblock %}

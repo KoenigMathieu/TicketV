@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="main">
     <h1>Modification du projet</h1>
 
     {{ form_start(edit_form) }}
@@ -8,8 +9,10 @@
     {% form_theme edit_form 'form/fields.html.twig' %}
 
     {{ form_widget(edit_form) }}
+</div>
 
-    <hr/>
+<div class="bottom_bar">
+    <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
     <div class="pull-right">
         <div class="row">
             <div class="col-md-5">
@@ -23,7 +26,6 @@
             </div>
         </div>
     </div>
-
-    <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+</div>
 
 {% endblock %}
