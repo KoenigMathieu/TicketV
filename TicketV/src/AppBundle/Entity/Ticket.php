@@ -85,7 +85,7 @@ class Ticket
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"remove"}))
-     * @ORM\OrderBy({"date" = "ASC"})
+     * @ORM\OrderBy({"date" = "DESC"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
      * })
