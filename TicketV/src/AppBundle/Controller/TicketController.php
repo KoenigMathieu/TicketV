@@ -148,6 +148,6 @@ class TicketController extends Controller
         ;
     }
 
-    
+
 
 }
