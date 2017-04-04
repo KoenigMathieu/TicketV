@@ -14,7 +14,14 @@
         </div>
         <div class="row">
             <div class="col-md-2"><b>Statut : </b></div>
-            <div class="col-md-8">{{ ticket.getIdStatut().getlibelle() }}</div>
+            <div class="col-md-8">
+                <table>
+                    <tr>
+                        <td><div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div></td>
+                        <td>{{ ticket.getIdStatut().getlibelle() }}</td>
+                    </tr>
+
+                </table></div>
         </div>
 
         <hr/>
