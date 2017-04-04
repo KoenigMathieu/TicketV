@@ -20,9 +20,9 @@ class Tags
     private $libelle;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="actif", type="string", nullable=false)
+     * @ORM\Column(name="actif", type="boolean", nullable=false)
      */
     private $actif;
 
@@ -78,7 +78,7 @@ class Tags
     /**
      * Set actif
      *
-     * @param string $actif
+     * @param boolean $actif
      *
      * @return Tags
      */
@@ -92,7 +92,7 @@ class Tags
     /**
      * Get actif
      *
-     * @return string
+     * @return boolean
      */
     public function getActif()
     {

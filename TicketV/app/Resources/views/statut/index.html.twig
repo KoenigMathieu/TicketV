@@ -11,6 +11,8 @@
                 <th>#</th>
                 <th>Libelle</th>
                 <th>Actif</th>
+                <th>Clos</th>
+
                 <th></th>
             </tr>
             </thead>
@@ -18,8 +20,17 @@
         {% for statut in statuts %}
             <tr>
                 <td>{{ statut.getIdStatut() }}</td>
-                <td>{{ statut.getLibelle() }}</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td> <div class="color_statut" style="background-color:{{ statut.getCouleur() }}"></div></td>
+                            <td>{{ statut.getLibelle() }}</td>
+                        </tr>
+                    </table>
+                </td>
                 <td>{% if statut.getActif() %} Oui {% else %} Non {% endif %}</td>
+                <td>{% if statut.getClos() %} Oui {% else %} Non {% endif %}</td>
+
                 <td class="text-center">
                     <div class="dropdown">
                         <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

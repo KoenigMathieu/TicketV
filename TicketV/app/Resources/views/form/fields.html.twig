@@ -27,7 +27,7 @@
 {% block choice_widget %}
     <select  width="70%" {{ block('widget_attributes') }} class="form-control" {% if multiple %}multiple{% endif %}>
         {% for choice in choices %}
-            <option value="{{ choice.value }}" {% if choice is selectedchoice(value) %} selected {% endif %}>{{ choice.label }}</option>
+            <option bgcolor="red" value="{{ choice.value }}" {% if choice is selectedchoice(value) %} selected {% endif %}>{{ choice.label }}</option>
         {% endfor %}
     </select>
 {% endblock %}

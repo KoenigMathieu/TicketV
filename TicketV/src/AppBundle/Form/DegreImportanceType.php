@@ -18,19 +18,6 @@ class DegreImportanceType extends AbstractType
     {
         $builder->add('libelle', TextType::class,['label'=>'Libellé : '])
             ->add('actif', CheckboxType::class,['label'=>'Actif : ','required' => false]);
-
-        $builder->get('actif')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($actifAsString) {
-                    // transform the String to a Boolean
-                    return (bool)$actifAsString;
-                },
-                function ($actifAsBoolean) {
-                    // transform the Boolean back to a String
-                    return $actifAsBoolean;
-                }
-            ))
-        ;
     }
     
     /**

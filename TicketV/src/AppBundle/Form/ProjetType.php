@@ -32,20 +32,6 @@ class ProjetType extends AbstractType
                 'choice_label' => 'username',
                 'multiple' => true
             ));
-
-        $builder->get('actif')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($actifAsString) {
-                    // transform the String to a Boolean
-                    return (bool)$actifAsString;
-                },
-                function ($actifAsBoolean) {
-                    // transform the Boolean back to a String
-                    return $actifAsBoolean;
-                }
-            ))
-        ;
-
     }
     
     /**

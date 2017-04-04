@@ -16,6 +16,14 @@
         <div class="col-md-2"><b>Actif : </b></div>
         <div class="col-md-8">{% if statut.getActif() %} Oui {% else %} Non {% endif %}</div>
     </div>
+    <div class="row">
+        <div class="col-md-2"><b>Clos : </b></div>
+        <div class="col-md-8">{% if statut.getClos() %} Oui {% else %} Non {% endif %}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Couleur : </b></div>
+        <div class="col-md-8"><div class="color_statut" style="background-color:{{ statut.getCouleur() }}"></div></div>
+    </div>
 </div>
 
 <div class="bottom_bar">

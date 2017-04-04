@@ -2,7 +2,27 @@ RoadMap :
 
 Classe Mise à jour
 crud mise à jour
+
 Vue utile :
 	- Accueil avec ticket prochaine mise à jour
 	- Liste ticket par personne avec filtre statut
-	- 
+	- Liste des tickets par mise à jour
+	- Vue de modification des tickets : suivi tickets et commentaires
+	- Vue de plannification des tâches
+	- Vue Calendrier par personne / par projet
+	- Vue Calendrier par projet
+
+Vue Ticket :
+	- Trouver comment gérer le changement de statut d’un ticket
+	- Trouver comment gérer l’insertion des suivis tickets
+	- Trouver comment gérer l’ajout d’un commentaire sur un ticket
+	- Trouver comment gérer le transfert d’un ticket vers un autre utilisateur
+
+Modification BDD :
+	- Modifier les champs booléen par des Tinyint (actuellement varchar)
+	- Modifier les champs description par des TEXT (actuellement varchar)
+	- Ajouter un champ dans la table statut permettant de signifier si ce statut signifie la clôture du ticket ?
+
+
+Optionnel mais sympathique : 
+	- Ajouter un champ couleur à statut afin de visuellement voir plus facilement les tickets (on peut utiliser une combo avec les couleurs dispo en HTML pour ne pas s’embêter avec un colorpicker dans un premier temps)

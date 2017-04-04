@@ -20,9 +20,9 @@ class Projet
     private $libelle;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="actif", type="string", nullable=false)
+     * @ORM\Column(name="actif", type="boolean", nullable=false)
      */
     private $actif;
 
@@ -86,7 +86,7 @@ class Projet
     /**
      * Set actif
      *
-     * @param string $actif
+     * @param boolean $actif
      *
      * @return Projet
      */
@@ -100,7 +100,7 @@ class Projet
     /**
      * Get actif
      *
-     * @return string
+     * @return boolean
      */
     public function getActif()
     {

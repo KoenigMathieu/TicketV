@@ -20,9 +20,9 @@ class DegreImportance
     private $libelle;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="actif", type="string", nullable=false)
+     * @ORM\Column(name="actif", type="boolean", nullable=false)
      */
     private $actif;
 
