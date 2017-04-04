@@ -28,7 +28,17 @@
                     <td>{{ ticket.getLibelle() }}</td>
                     <td>{{ ticket.getIdProjet().getlibelle() }}</td>
                     <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
-                    <td>{{ ticket.getIdStatut().getLibelle() }}</td>
+                    <td>
+                        <table>
+                            <tr></tr>
+                            <td>
+                                <div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div>
+                            </td>
+                            <td>
+                                {{ ticket.getIdStatut().getLibelle() }}</td>
+                            </td>
+                        </table>
+                    </td>
                     <td class="text-center">
                         <div class="dropdown">
                             <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
