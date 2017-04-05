@@ -21,7 +21,7 @@ class StatutType extends AbstractType
         $builder->add('libelle', TextType::class,['label'=>'Libellé : '])
                 ->add('actif', CheckboxType::class,['label'=>'Actif : ','required' => false])
                 ->add('clos', CheckboxType::class,['label'=>'Clos : ','required' => false])
-                ->add('couleur', ChoiceType::class,['label'=>'Couleur :','choices' => Statut::getAllCouleurs()]);
+                ->add('couleur', ChoiceType::class,['label'=>'Couleur :','block_name' => 'couleur','choices' => Statut::getAllCouleurs()]);
         ;
 
     }
