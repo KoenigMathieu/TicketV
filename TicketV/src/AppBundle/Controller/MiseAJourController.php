@@ -89,7 +89,7 @@ class MiseAJourController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('miseajour_edit', array('idMiseAJour' => $miseAJour->getIdMiseAJour()));
+            return $this->redirectToRoute('miseajour_show', array('idMiseAJour' => $miseAJour->getIdMiseAJour()));
         }
 
         return $this->render('miseajour/edit.html.twig', array(
