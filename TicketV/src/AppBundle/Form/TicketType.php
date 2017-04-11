@@ -37,6 +37,14 @@ class TicketType extends AbstractType
                 'label'=>'Statut : '
             ))
 
+            ->add('miseAJour', EntityType::class, array(
+                'class' => 'AppBundle:MiseAJour',
+                'choice_label' => 'version',
+                'required' => false,
+                'placeholder'   =>'Aucune',
+                'empty_data'  => null,
+                'label'=>'Mise à jour : '
+            ))
 
             ->add('tagsTag', EntityType::class, array(
                 'class' => 'AppBundle:Tags',

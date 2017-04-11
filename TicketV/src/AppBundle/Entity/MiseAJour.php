@@ -53,15 +53,7 @@ class MiseAJour
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Ticket", inversedBy="idTicket")
-     * @ORM\JoinTable(name="ticket_has_mise_a_jour",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_mise_a_jour", referencedColumnName="id_mise_a_jour")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="idMiseAJour")
      */
     private $tickets;
 

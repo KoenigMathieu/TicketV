@@ -93,6 +93,16 @@ class Ticket
      */
     private $suiviTickets;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\MiseAJour")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_mise_a_jour", referencedColumnName="id_mise_a_jour")
+     * })
+     */
+    private $miseAJour;
+
 
     /**
      * Constructor
@@ -301,7 +311,31 @@ class Ticket
     {
         return $this->suiviTickets;
     }
-    
+
+
+    /**
+     * Set MiseAJour
+     *
+     * @param \AppBundle\Entity\MiseAJour $miseAJour
+     *
+     * @return Ticket
+     */
+    public function setMiseAJour(\AppBundle\Entity\MiseAJour $miseAJour = null)
+    {
+        $this->miseAJour = $miseAJour;
+
+        return $this;
+    }
+
+    /**
+     * Get miseAJour
+     *
+     * @return \AppBundle\Entity\MiseAJour
+     */
+    public function getMiseAJour()
+    {
+        return $this->miseAJour;
+    }
 
     /**
      * Add suiviTicket

@@ -26,6 +26,9 @@
 
 {% block choice_widget %}
     <select  width="70%" {{ block('widget_attributes') }} class="form-control" {% if multiple %}multiple{% endif %}>
+        {% if placeholder %}
+        <option value="{{ null }}" {% if choices|length == 0 %} selected {% endif %}>{{ placeholder }}</option>
+        {% endif %}
         {% for choice in choices %}
             <option value="{{ choice.value }}" {% if choice is selectedchoice(value) %} selected {% endif %}>{{ choice.label }}</option>
         {% endfor %}
