@@ -53,7 +53,7 @@ class MiseAJour
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="idMiseAJour")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="miseAJour")
      */
     private $tickets;
 

@@ -12,7 +12,7 @@
                 <th>Version</th>
                 <th>Date</th>
                 <th>Effectue</th>
-                <th>Remarque</th>
+                <th>Tickets</th>
                 <th></th>
             </tr>
             </thead>
@@ -23,7 +23,7 @@
                 <td>{{ maj.getVersion() }}</td>
                 <td>{{ maj.getDate()|date("d/m/Y") }}</td>
                 <td>{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</td>
-                <td>{{ maj.getRemarque() }}</td>
+                <td>{{ maj.getTickets()|length }} ticket(s)  </td>
                 <td class="text-center">
                     <div class="dropdown">
                         <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
