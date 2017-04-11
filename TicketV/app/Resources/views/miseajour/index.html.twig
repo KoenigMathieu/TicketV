@@ -9,6 +9,7 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>Projet</th>
                 <th>Version</th>
                 <th>Date</th>
                 <th>Effectue</th>
@@ -20,6 +21,7 @@
         {% for maj in majs %}
             <tr>
                 <td>{{ maj.getIdMiseAJour() }}</td>
+                <td>{{ maj.getProjet().getLibelle() }}</td>
                 <td>{{ maj.getVersion() }}</td>
                 <td>{{ maj.getDate()|date("d/m/Y") }}</td>
                 <td>{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</td>

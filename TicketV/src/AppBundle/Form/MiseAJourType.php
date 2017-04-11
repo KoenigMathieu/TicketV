@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\MiseAJour;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -21,6 +22,13 @@ class MiseAJourType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('version', TextType::class,['label'=>'Version : '])
+
+                ->add('projet', EntityType::class, array(
+                    'class' => 'AppBundle:Projet',
+                    'choice_label' => 'libelle',
+                    'label'=>'Projet : '
+                ))
+
                 ->add('date', DateType::class,['label'=>'Date : ','widget' => 'single_text'])
                 ->add('effectue',CheckboxType::class,['label'=>'Effectuée','required' => false])
                 ->add('remarque', TextareaType::class,['label'=>'Remarque : ','required' => false]);

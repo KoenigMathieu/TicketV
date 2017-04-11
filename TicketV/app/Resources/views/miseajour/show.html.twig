@@ -13,6 +13,10 @@
         <div class="col-md-8">{{ maj.getVersion() }}</div>
     </div>
     <div class="row">
+        <div class="col-md-2"><b>Projet : </b></div>
+        <div class="col-md-8">{{ maj.getProjet().getLibelle() }}</div>
+    </div>
+    <div class="row">
         <div class="col-md-2"><b>Date : </b></div>
         <div class="col-md-8">{{ maj.getDate()|date("d/m/Y") }}</div>
     </div>

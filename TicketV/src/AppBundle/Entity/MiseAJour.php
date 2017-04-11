@@ -19,7 +19,6 @@ class MiseAJour
      */
     private $remarque;
 
-
     /**
      * @var string
      *
@@ -40,6 +39,16 @@ class MiseAJour
      * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
+
+    /**
+     * @var \AppBundle\Entity\Projet
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Projet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_projet", referencedColumnName="id_projet")
+     * })
+     */
+    private $projet;
 
     /**
      * @var integer
@@ -203,6 +212,31 @@ class MiseAJour
     public function getVersion()
     {
         return $this->version;
+    }
+
+
+    /**
+     * Set projet
+     *
+     * @param \AppBundle\Entity\Projet $projet
+     *
+     * @return Ticket
+     */
+    public function setProjet(\AppBundle\Entity\Projet $projet = null)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \AppBundle\Entity\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
     }
 
 }
