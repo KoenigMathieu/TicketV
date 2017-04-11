@@ -37,12 +37,14 @@ class TicketType extends AbstractType
                 'label'=>'Statut : '
             ))
 
+
             ->add('tagsTag', EntityType::class, array(
                 'class' => 'AppBundle:Tags',
                 'choice_label' => 'libelle',
                 'label'=>'Tags : ',
                 'multiple'=>true
             ));
+
 
     }
     

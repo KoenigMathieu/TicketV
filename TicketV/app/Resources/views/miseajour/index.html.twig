@@ -9,7 +9,9 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>Version</th>
                 <th>Date</th>
+                <th>Effectue</th>
                 <th>Remarque</th>
                 <th></th>
             </tr>
@@ -18,7 +20,9 @@
         {% for maj in majs %}
             <tr>
                 <td>{{ maj.getIdMiseAJour() }}</td>
+                <td>{{ maj.getVersion() }}</td>
                 <td>{{ maj.getDate()|date("d/m/Y") }}</td>
+                <td>{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</td>
                 <td>{{ maj.getRemarque() }}</td>
                 <td class="text-center">
                     <div class="dropdown">

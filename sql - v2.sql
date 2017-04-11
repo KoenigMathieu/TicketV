@@ -170,8 +170,10 @@ CREATE TABLE `ticket` (
 
 CREATE TABLE `mise_a_jour` (
   `id_mise_a_jour` int(11) NOT NULL AUTO_INCREMENT,
+  `version` varchar(255) NOT NULL,
   `remarque` text COLLATE utf8_unicode_ci,
   `date` DATETIME NOT NULL,
+  `effectue` TINYINT DEFAULT 0,
   PRIMARY KEY (id_mise_a_jour)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

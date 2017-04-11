@@ -20,7 +20,9 @@ class MiseAJourType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date', DateType::class,['label'=>'Date : ','widget' => 'single_text'])
+        $builder->add('version', TextType::class,['label'=>'Version : '])
+                ->add('date', DateType::class,['label'=>'Date : ','widget' => 'single_text'])
+                ->add('effectue',CheckboxType::class,['label'=>'Effectuée','required' => false])
                 ->add('remarque', TextareaType::class,['label'=>'Remarque : ','required' => false]);
         ;
 
