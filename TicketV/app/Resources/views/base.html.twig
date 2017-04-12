@@ -8,6 +8,7 @@
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ticketv.css') }}">
 
         {% block javascripts %}
             <script src="{{ asset('assets/vendor/jquery/dist/jquery.js') }}"></script>
@@ -20,93 +21,6 @@
             </script>
 
         {% endblock %}
-
-        <style>
-
-            .table-responsive {
-                overflow-x: visible !important;
-                overflow-y: visible !important;
-            }
-
-            .bg-faded {
-                background-color: #f7f7f7;
-                border-right: 1px solid #eee;
-            }
-
-            .sidebar {
-                position: fixed;
-                top: 51px;
-                bottom: 0;
-                left: 0;
-                z-index: 1000;
-                padding: 0px;
-                padding-top:20px;
-            }
-
-            .offset-md-2 {
-                margin-left: 5%;
-            }
-
-            .ticket_desc{
-                padding-left:20px;
-                padding-top:15px;
-                padding-bottom:15px;
-                padding-right:15px;
-
-                border-left: 2px solid #286090;
-                margin-top:10px;
-            }
-
-            .suivi_ticket{
-                margin-top:10px;
-                padding-left : 20px;
-                border-left: 2px solid #286090;
-            }
-
-            .bottom_bar {
-                border-top: 2px solid #eee;
-                height: 50px;
-                position: fixed;
-                bottom:0%;
-                width:100%;
-                padding-right:30px;
-                padding-top : 10px;
-                padding-left: 50px;
-                background-color: #FFFFFF;
-                margin-left: -50px;
-            }
-
-            .main{
-                padding-bottom : 100px;
-                padding-left: 20px;
-            }
-
-            .bottom_bar a{
-                margin-right:15px;
-            }
-
-            .left-col{
-                width:50px;
-            }
-
-            .color_statut{
-                border : 1px solid #AAA;
-                width :15px;
-                height :15px;
-                margin-right:10px;
-                border-radius: .5em;
-            }
-
-            .container{
-                width:95%;
-                margin-left:50px;
-            }
-
-            .menu_icon{
-                font-size: 1.2em;
-            }
-
-        </style>
 
     </head>
     <body>
@@ -138,25 +52,25 @@
             <div class="bg-faded sidebar left-col">
                 <ul class="nav nav-sidebar">
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Accueil" href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-home"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Accueil" href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-home"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Tickets" href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-th-list"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Tickets" href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-th-list"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Projets" href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-folder-open"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Projets" href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-folder-open"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Mises à jour" href="{{ path('miseajour_index') }}" {% if app.request.attributes.get('_route') == 'miseajour_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-download-alt"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Mises à jour" href="{{ path('miseajour_index') }}" {% if app.request.attributes.get('_route') == 'miseajour_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-download-alt"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Statuts" href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-bookmark"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Statuts" href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-bookmark"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Importances" href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-flag"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Importances" href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-flag"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Tags" href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="bg-primary" {% endif %} ><span class="menu_icon glyphicon glyphicon-tags"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Tags" href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-tags"/></a>
                     </li>
 
                 </ul>
