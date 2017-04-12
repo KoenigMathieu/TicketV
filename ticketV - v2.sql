@@ -85,7 +85,7 @@ INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_
 --
 
 CREATE TABLE `mise_a_jour` (
-    `id_mise_a_jour` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mise_a_jour` int(11) NOT NULL AUTO_INCREMENT,
   `version` varchar(255) NOT NULL,
   `remarque` text COLLATE utf8_unicode_ci,
   `date` DATETIME NOT NULL,
@@ -227,6 +227,7 @@ CREATE TABLE `ticket` (
   `id_ticket` int(11) NOT NULL,
   `id_degre_importance` int(11) DEFAULT NULL,
   `id_projet` int(11) DEFAULT NULL,
+  `id_mise_a_jour` int(11) DEFAULT NULL,
   `id_statut` int(11) DEFAULT NULL,
   `libelle` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci
@@ -364,6 +365,7 @@ ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id_ticket`),
   ADD KEY `id_degre_importance` (`id_degre_importance`),
   ADD KEY `id_projet` (`id_projet`),
+  ADD KEY `id_mise_a_jour` (`id_mise_a_jour`),
   ADD KEY `id_statut` (`id_statut`);
 
 --
@@ -467,6 +469,7 @@ ALTER TABLE `suivi_ticket`
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_degre_importance`) REFERENCES `degre_importance` (`id_degre_importance`),
   ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`id_projet`) REFERENCES `projet` (`id_projet`),
+  ADD CONSTRAINT `ticket_ibfk_4` FOREIGN KEY (`id_mise_a_jour`) REFERENCES `mise_a_jour` (`id_mise_a_jour`),
   ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`id_statut`) REFERENCES `statut` (`id_statut`);
 
 --
