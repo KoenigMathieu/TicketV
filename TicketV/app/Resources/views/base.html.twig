@@ -55,22 +55,22 @@
                         <a data-toggle="tooltip" data-placement="right" title="Accueil" href="{{ path('homepage') }}" {% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-home"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Tickets" href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') == 'ticket_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-th-list"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Tickets" href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') starts with 'ticket' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-th-list"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Projets" href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') == 'projet_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-folder-open"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Projets" href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') starts with 'projet' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-folder-open"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Mises à jour" href="{{ path('miseajour_index') }}" {% if app.request.attributes.get('_route') == 'miseajour_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-download-alt"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Mises à jour" href="{{ path('miseajour_index') }}" {% if app.request.attributes.get('_route') starts with 'miseajour' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-download-alt"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Statuts" href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') == 'statut_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-bookmark"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Statuts" href="{{ path('statut_index') }}" {% if app.request.attributes.get('_route') starts with 'statut' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-bookmark"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Importances" href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') == 'degreimportance_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-flag"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Importances" href="{{ path('degreimportance_index') }}" {% if app.request.attributes.get('_route') starts with 'degreimportance' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-flag"/></a>
                     </li>
                     <li>
-                        <a data-toggle="tooltip" data-placement="right" title="Tags" href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') == 'tags_index' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-tags"/></a>
+                        <a data-toggle="tooltip" data-placement="right" title="Tags" href="{{ path('tags_index') }}" {% if app.request.attributes.get('_route') starts with 'tags' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-tags"/></a>
                     </li>
 
                 </ul>
