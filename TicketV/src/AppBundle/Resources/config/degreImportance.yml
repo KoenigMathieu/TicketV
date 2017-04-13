@@ -1,0 +1,24 @@
+degreimportance_index:
+    path: /importance
+    defaults: { _controller: "AppBundle:DegreImportance:index" }
+    methods:  ['GET']
+
+degreimportance_new:
+    path: /importance/new
+    defaults: { _controller: "AppBundle:DegreImportance:new" }
+    methods:  ['GET','POST']
+
+degreimportance_show:
+    path: /importance/{idDegreImportance}
+    defaults: { _controller: "AppBundle:DegreImportance:show" }
+    methods:  ['GET']
+
+degreimportance_edit:
+    path: /importance/edit/{idDegreImportance}
+    defaults: { _controller: "AppBundle:DegreImportance:edit" }
+    methods:  ['GET','POST']
+
+degreimportance_delete:
+    path: /importance/{idDegreImportance}
+    defaults: { _controller: "AppBundle:DegreImportance:delete" }
+    methods:  ['DELETE']

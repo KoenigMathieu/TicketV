@@ -18,8 +18,6 @@ class MiseAJourController extends Controller
     /**
      * Lists all MiseAJour entities.
      *
-     * @Route("/", name="miseajour_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -35,8 +33,6 @@ class MiseAJourController extends Controller
     /**
      * Creates a new MiseAJour entity.
      *
-     * @Route("/new", name="miseajour_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -61,8 +57,6 @@ class MiseAJourController extends Controller
     /**
      * Finds and displays a MiseAJour entity.
      *
-     * @Route("/{idMiseAJour}", name="miseajour_show")
-     * @Method("GET")
      */
     public function showAction(MiseAJour $miseAJour)
     {
@@ -77,8 +71,6 @@ class MiseAJourController extends Controller
     /**
      * Displays a form to edit an existing MiseAJour entity.
      *
-     * @Route("/{idMiseAJour}/edit", name="miseajour_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, MiseAJour $miseAJour)
     {
@@ -102,8 +94,6 @@ class MiseAJourController extends Controller
     /**
      * Deletes a MiseAJour entity.
      *
-     * @Route("/{idMiseAJour}", name="miseajour_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, MiseAJour $miseAJour)
     {

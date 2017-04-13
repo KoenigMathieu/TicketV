@@ -1,0 +1,24 @@
+statut_index:
+    path: /statut
+    defaults: { _controller: "AppBundle:Statut:index" }
+    methods:  ['GET']
+
+statut_new:
+    path: /statut/new
+    defaults: { _controller: "AppBundle:Statut:new" }
+    methods:  ['GET','POST']
+
+statut_show:
+    path: /statut/{idStatut}
+    defaults: { _controller: "AppBundle:Statut:show" }
+    methods:  ['GET']
+
+statut_edit:
+    path: /statut/edit/{idStatut}
+    defaults: { _controller: "AppBundle:Statut:edit" }
+    methods:  ['GET','POST']
+
+statut_delete:
+    path: /statut/{idStatut}
+    defaults: { _controller: "AppBundle:Statut:delete" }
+    methods:  ['DELETE']

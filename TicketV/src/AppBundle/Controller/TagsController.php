@@ -17,8 +17,6 @@ class TagsController extends Controller
     /**
      * Lists all tag entities.
      *
-     * @Route("/", name="tags_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -34,8 +32,6 @@ class TagsController extends Controller
     /**
      * Creates a new tag entity.
      *
-     * @Route("/new", name="tags_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -60,8 +56,6 @@ class TagsController extends Controller
     /**
      * Finds and displays a tag entity.
      *
-     * @Route("/{idTag}", name="tags_show")
-     * @Method("GET")
      */
     public function showAction(Tags $tag)
     {
@@ -76,8 +70,6 @@ class TagsController extends Controller
     /**
      * Displays a form to edit an existing tag entity.
      *
-     * @Route("/{idTag}/edit", name="tags_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Tags $tag)
     {
@@ -101,8 +93,6 @@ class TagsController extends Controller
     /**
      * Deletes a tag entity.
      *
-     * @Route("/{idTag}", name="tags_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Tags $tag)
     {

@@ -17,8 +17,6 @@ class ProjetController extends Controller
     /**
      * Lists all projet entities.
      *
-     * @Route("/", name="projet_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -34,8 +32,6 @@ class ProjetController extends Controller
     /**
      * Creates a new projet entity.
      *
-     * @Route("/new", name="projet_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -60,8 +56,6 @@ class ProjetController extends Controller
     /**
      * Finds and displays a projet entity.
      *
-     * @Route("/{idProjet}", name="projet_show")
-     * @Method("GET")
      */
     public function showAction(Projet $projet)
     {
@@ -82,8 +76,6 @@ class ProjetController extends Controller
     /**
      * Displays a form to edit an existing projet entity.
      *
-     * @Route("/{idProjet}/edit", name="projet_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Projet $projet)
     {
@@ -107,8 +99,6 @@ class ProjetController extends Controller
     /**
      * Deletes a projet entity.
      *
-     * @Route("/{idProjet}", name="projet_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Projet $projet)
     {

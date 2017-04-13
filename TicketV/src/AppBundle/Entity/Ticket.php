@@ -94,11 +94,11 @@ class Ticket
     private $suiviTickets;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \AppBundle\Entity\MiseAJour
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\MiseAJour")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_mise_a_jour", referencedColumnName="id_mise_a_jour")
+     *   @ORM\JoinColumn(name="id_mise_a_jour", referencedColumnName="id_mise_a_jour", nullable=true)
      * })
      */
     private $miseAJour;

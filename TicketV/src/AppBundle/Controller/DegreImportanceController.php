@@ -17,8 +17,6 @@ class DegreImportanceController extends Controller
     /**
      * Lists all degreImportance entities.
      *
-     * @Route("/", name="degreimportance_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -34,8 +32,6 @@ class DegreImportanceController extends Controller
     /**
      * Creates a new degreImportance entity.
      *
-     * @Route("/new", name="degreimportance_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -60,8 +56,6 @@ class DegreImportanceController extends Controller
     /**
      * Finds and displays a degreImportance entity.
      *
-     * @Route("/{idDegreImportance}", name="degreimportance_show")
-     * @Method("GET")
      */
     public function showAction(DegreImportance $degreImportance)
     {
@@ -76,8 +70,6 @@ class DegreImportanceController extends Controller
     /**
      * Displays a form to edit an existing degreImportance entity.
      *
-     * @Route("/{idDegreImportance}/edit", name="degreimportance_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, DegreImportance $degreImportance)
     {
@@ -101,8 +93,6 @@ class DegreImportanceController extends Controller
     /**
      * Deletes a degreImportance entity.
      *
-     * @Route("/{idDegreImportance}", name="degreimportance_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, DegreImportance $degreImportance)
     {

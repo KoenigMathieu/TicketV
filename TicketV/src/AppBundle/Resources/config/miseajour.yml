@@ -1,0 +1,24 @@
+miseajour_index:
+    path: /miseajour
+    defaults: { _controller: "AppBundle:MiseAJour:index" }
+    methods:  ['GET']
+
+miseajour_new:
+    path: /miseajour/new
+    defaults: { _controller: "AppBundle:MiseAJour:new" }
+    methods:  ['GET','POST']
+
+miseajour_show:
+    path: /miseajour/{idMiseAJour}
+    defaults: { _controller: "AppBundle:MiseAJour:show" }
+    methods:  ['GET']
+
+miseajour_edit:
+    path: /miseajour/edit/{idMiseAJour}
+    defaults: { _controller: "AppBundle:MiseAJour:edit" }
+    methods:  ['GET','POST']
+
+miseajour_delete:
+    path: /miseajour/{idMiseAJour}
+    defaults: { _controller: "AppBundle:MiseAJour:delete" }
+    methods:  ['DELETE']

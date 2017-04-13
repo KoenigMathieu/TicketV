@@ -1,0 +1,17 @@
+ticket:
+    resource: "@AppBundle/Resources/config/ticket.yml"
+
+miseajour:
+    resource: "@AppBundle/Resources/config/miseajour.yml"
+
+projet:
+    resource: "@AppBundle/Resources/config/projet.yml"
+
+statut:
+    resource: "@AppBundle/Resources/config/statut.yml"
+
+degreImportance:
+    resource: "@AppBundle/Resources/config/degreImportance.yml"
+
+tags:
+    resource: "@AppBundle/Resources/config/tags.yml"

@@ -17,8 +17,6 @@ class StatutController extends Controller
     /**
      * Lists all statut entities.
      *
-     * @Route("/", name="statut_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -34,8 +32,6 @@ class StatutController extends Controller
     /**
      * Creates a new statut entity.
      *
-     * @Route("/new", name="statut_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -60,8 +56,6 @@ class StatutController extends Controller
     /**
      * Finds and displays a statut entity.
      *
-     * @Route("/{idStatut}", name="statut_show")
-     * @Method("GET")
      */
     public function showAction(Statut $statut)
     {
@@ -76,8 +70,6 @@ class StatutController extends Controller
     /**
      * Displays a form to edit an existing statut entity.
      *
-     * @Route("/{idStatut}/edit", name="statut_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Statut $statut)
     {
@@ -101,8 +93,6 @@ class StatutController extends Controller
     /**
      * Deletes a statut entity.
      *
-     * @Route("/{idStatut}", name="statut_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Statut $statut)
     {

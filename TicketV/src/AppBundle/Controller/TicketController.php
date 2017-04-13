@@ -20,8 +20,6 @@ class TicketController extends Controller
     /**
      * Lists all ticket entities.
      *
-     * @Route("/", name="ticket_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -37,8 +35,6 @@ class TicketController extends Controller
     /**
      * Creates a new ticket entity.
      *
-     * @Route("/new", name="ticket_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -66,8 +62,6 @@ class TicketController extends Controller
     /**
      * Finds and displays a ticket entity.
      *
-     * @Route("/{idTicket}", name="ticket_show")
-     * @Method("GET")
      */
     public function showAction(Ticket $ticket)
     {
@@ -85,8 +79,6 @@ class TicketController extends Controller
     /**
      * Displays a form to edit an existing ticket entity.
      *
-     * @Route("/{idTicket}/edit", name="ticket_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Ticket $ticket)
     {
@@ -112,8 +104,6 @@ class TicketController extends Controller
     /**
      * Deletes a ticket entity.
      *
-     * @Route("/{idTicket}", name="ticket_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Ticket $ticket)
     {
