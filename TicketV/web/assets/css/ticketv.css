@@ -1,0 +1,105 @@
+.table-responsive {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+.bg-faded {
+    background-color: #286090;
+    border-right: 1px solid #eee;
+}
+
+.bg-faded li{
+    width:100%;
+}
+
+.bg-faded li a{
+    color:white;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.bg-faded li a:hover{
+    background-color: #428bca;
+}
+
+.active{
+    background-color: #30aabc;
+}
+
+.bg-faded li .active:hover{
+    background-color: #30aabc;
+}
+
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0px;
+    padding-top:20px;
+}
+
+.offset-md-2 {
+    margin-left: 60%;
+}
+
+.ticket_desc{
+    padding-left:20px;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-right:15px;
+
+    border-left: 2px solid #286090;
+    margin-top:10px;
+}
+
+.suivi_ticket{
+    margin-top:10px;
+    padding-left : 20px;
+    border-left: 2px solid #286090;
+}
+
+.bottom_bar {
+    border-top: 2px solid #eee;
+    height: 50px;
+    position: fixed;
+    bottom:0%;
+    width:100%;
+    padding-right:30px;
+    padding-top : 10px;
+    padding-left: 60px;
+    background-color: #FFFFFF;
+    margin-left: -60px;
+}
+
+.main{
+    padding-bottom : 100px;
+    padding-left: 20px;
+}
+
+.bottom_bar a{
+    margin-right:15px;
+}
+
+.left-col{
+    width:60px;
+}
+
+.color_statut{
+    border : 1px solid #AAA;
+    width :15px;
+    height :15px;
+    margin-right:10px;
+    border-radius: .5em;
+}
+
+.container{
+    width:95%;
+    margin-left:60px;
+}
+
+.menu_icon{
+    font-size: 1.3em;
+}

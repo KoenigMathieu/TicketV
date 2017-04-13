@@ -154,13 +154,15 @@ CREATE TABLE `ticket` (
   `id_ticket` int(11) NOT NULL AUTO_INCREMENT,
   `id_degre_importance` int(11) DEFAULT NULL,
   `id_projet` int(11) DEFAULT NULL,
+  `id_mise_a_jour` int(11) DEFAULT NULL,
   `id_statut` int(11) DEFAULT NULL,
   `libelle` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (id_ticket),
   FOREIGN KEY (id_degre_importance) REFERENCES degre_importance(id_degre_importance),
   FOREIGN KEY (id_projet) REFERENCES projet(id_projet),
-  FOREIGN KEY (id_statut) REFERENCES statut(id_statut)
+  FOREIGN KEY (id_statut) REFERENCES statut(id_statut),
+  FOREIGN KEY (id_mise_a_jour) REFERENCES mise_a_jour(id_mise_a_jour)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -170,9 +172,13 @@ CREATE TABLE `ticket` (
 
 CREATE TABLE `mise_a_jour` (
   `id_mise_a_jour` int(11) NOT NULL AUTO_INCREMENT,
+  `id_projet` int(11) NOT NULL,
+  `version` varchar(255) NOT NULL,
   `remarque` text COLLATE utf8_unicode_ci,
   `date` DATETIME NOT NULL,
-  PRIMARY KEY (id_mise_a_jour)
+  `effectue` TINYINT DEFAULT 0,
+  PRIMARY KEY (id_mise_a_jour),
+  FOREIGN KEY (id_projet) REFERENCES projet(id_projet)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 

@@ -49,25 +49,6 @@ class Statut
      */
     private $idStatut;
 
-    //CONSTANTES DE COULEUR
-    const COULEUR_WHITE = "White";
-    const COULEUR_SILVER = "Silver";
-    const COULEUR_GRAY = "Gray";
-    const COULEUR_BLACK = "Black";
-    const COULEUR_RED = "Red";
-    const COULEUR_MAROON = "Maroon";
-    const COULEUR_YELLOW = "Yellow";
-    const COULEUR_OLIVE = "Olive";
-    const COULEUR_LIME = "Lime";
-    const COULEUR_GREEN = "Green";
-    const COULEUR_AQUA = "Aqua";
-    const COULEUR_TEAL = "Teal";
-    const COULEUR_BLUE = "Blue";
-    Const COULEUR_NAVY = "Navy";
-    const COULEUR_FUCHSHIA = "Fuchsia";
-    const COULEUR_PURPLE = "Purple";
-
-
 
     /**
      * Set libelle
@@ -175,33 +156,6 @@ class Statut
     public function getIdStatut()
     {
         return $this->idStatut;
-    }
-
-    /**
-     * Get COULEURS
-     *
-     * @return array
-     */
-    public static function getAllCouleurs()
-    {
-        $returnValue = array(self::COULEUR_WHITE => self::COULEUR_WHITE,
-                             self::COULEUR_SILVER => self::COULEUR_SILVER,
-                             self::COULEUR_GRAY => self::COULEUR_GRAY,
-                             self::COULEUR_BLACK => self::COULEUR_BLACK,
-                             self::COULEUR_RED => self::COULEUR_RED,
-                             self::COULEUR_MAROON => self::COULEUR_MAROON,
-                             self::COULEUR_YELLOW => self::COULEUR_YELLOW,
-                             self::COULEUR_OLIVE => self::COULEUR_OLIVE,
-                             self::COULEUR_LIME => self::COULEUR_LIME,
-                             self:: COULEUR_GREEN => self:: COULEUR_GREEN,
-                             self::COULEUR_AQUA => self::COULEUR_AQUA,
-                             self::COULEUR_TEAL=> self::COULEUR_TEAL,
-                             self::COULEUR_BLUE => self::COULEUR_BLUE,
-                             self::COULEUR_NAVY => self::COULEUR_NAVY,
-                             self::COULEUR_FUCHSHIA => self::COULEUR_FUCHSHIA,
-                             self::COULEUR_PURPLE => self::COULEUR_PURPLE);
-
-        return $returnValue;
     }
 
 

@@ -23,7 +23,13 @@
 
                 </table></div>
         </div>
+        {% if ticket.getMiseAJour() %}
+        <div class="row">
+            <div class="col-md-2"><b>Mise à jour : </b></div>
+            <div class="col-md-8">{{ ticket.getMiseAJour().getVersion() }} prévue le {{ ticket.getMiseAJour().getDate()|date('d/m/Y') }}</div>
+        </div>
 
+        {% endif %}
         <hr/>
 
         <b> Description : </b>

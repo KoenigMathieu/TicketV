@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="main">
+    <h1>Liste des mises à jours</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Projet</th>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Effectue</th>
+                <th>Tickets</th>
+                <th></th>
+            </tr>
+            </thead>
+        <tbody>
+        {% for maj in majs %}
+            <tr>
+                <td>{{ maj.getIdMiseAJour() }}</td>
+                <td>{{ maj.getProjet().getLibelle() }}</td>
+                <td>{{ maj.getVersion() }}</td>
+                <td>{{ maj.getDate()|date("d/m/Y") }}</td>
+                <td>{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</td>
+                <td>{{ maj.getTickets()|length }} ticket(s)  </td>
+                <td class="text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <li><a href="{{ path('miseajour_show', { 'idMiseAJour': maj.idMiseAJour }) }}">Consulter</a></li>
+                            <li><a href="{{ path('miseajour_edit', { 'idMiseAJour': maj.idMiseAJour }) }}">Modifier</a></li>
+                            <li><a href="{{ path('miseajour_delete', { 'idMiseAJour': maj.idMiseAJour }) }}">Supprimer</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    </div>
+</div>
+<div class="bottom_bar">
+    <a href="{{ path('miseajour_new') }}"><span class="glyphicon glyphicon-plus"></span> Créer une mise à jour</a>
+</div>
+{% endblock %}

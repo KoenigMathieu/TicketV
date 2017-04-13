@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="main">
+    <h1>Mise à jour</h1>
+
+    <div class="row">
+        <div class="col-md-2"><b>Identifiant : </b></div>
+        <div class="col-md-8">{{ maj.getIdMiseAJour() }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Version : </b></div>
+        <div class="col-md-8">{{ maj.getVersion() }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Projet : </b></div>
+        <div class="col-md-8">{{ maj.getProjet().getLibelle() }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Date : </b></div>
+        <div class="col-md-8">{{ maj.getDate()|date("d/m/Y") }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Effectuée : </b></div>
+        <div class="col-md-8">{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><b>Remarque : </b></div>
+        <div class="col-md-8">{{ maj.getRemarque() }}</div>
+    </div>
+</div>
+
+<div class="bottom_bar">
+    <a href="{{ path('miseajour_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+    <a href="{{ path('miseajour_edit', { 'idMiseAJour': maj.idMiseAJour }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+    <div class="pull-right">
+        {{ form_start(delete_form) }}
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
+</div>
+{% endblock %}
