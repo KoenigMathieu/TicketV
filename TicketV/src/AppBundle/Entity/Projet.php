@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Projet V5
+ * Projet V6
  *
  * @ORM\Table(name="projet")
  * @ORM\Entity
