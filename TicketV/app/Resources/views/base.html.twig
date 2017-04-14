@@ -44,11 +44,11 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><span class="navbar-brand glyphicon glyphicon-bell"></span></li>
+                        <li class="navbar-brand"><span class=" glyphicon glyphicon-bell"></span></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></li>
+                                <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
                                 <li><a href="{{ path('fos_user_profile_edit') }}">Modifier informations</a></li>
                                 <li><a href="{{ path('fos_user_change_password') }}">Modifier mot de passe</a></li>
                                 <li role="separator" class="divider"></li>
