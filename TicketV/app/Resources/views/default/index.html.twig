@@ -2,11 +2,7 @@
 
 {% block body %}
 <div class="main">
- <h1>Bonjour {{ app.user.username }} </h1>
-
-   <b>Nombre de ticket(s) affecté(s) : {{ tickets|length }}</b>
-
-    <br/>
+ <h1>Bonjour {{ app.user.username }} <span class="badge">{{ tickets|length }} ticket(s)</span></h1>
 
     <hr/>
     <div class="table-responsive">
@@ -17,6 +13,8 @@
                 <th>Libelle</th>
                 <th>Projet</th>
                 <th>Importance</th>
+                <th>Mis à jour</th>
+                <th>Affecté à</th>
                 <th>Statut</th>
                 <th></th>
             </tr>
@@ -28,6 +26,18 @@
                     <td>{{ ticket.getLibelle() }}</td>
                     <td>{{ ticket.getIdProjet().getlibelle() }}</td>
                     <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
+                    <td> {% if ticket.getSuiviTicket()|length >0 %}
+                            {{ ticket.getSuiviTicket[0].getDate()|date('d/m/Y') }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td> {% if ticket.getSuiviTicket()|length >0 %}
+                            {{ ticket.getSuiviTicket[0].getIdUtilisateur().getUsername() }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
                     <td>
                         <table>
                             <tr></tr>
@@ -39,6 +49,7 @@
                             </td>
                         </table>
                     </td>
+
                     <td class="text-center">
                         <div class="dropdown">
                             <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
