@@ -44,10 +44,9 @@
             </div>
         </div>
     </nav>
-    <br/>
-    <br/>
-    <br/>
+
     <div class="container-fluid">
+
         <div class="row">
             <div class="bg-faded sidebar left-col">
                 <ul class="nav nav-sidebar">
@@ -75,7 +74,27 @@
 
                 </ul>
             </div>
+                {% if route is defined %}
+                    <ol class="breadcrumb submenu">
+                        {% for menu,path in route %}
+                            {% if path != "active" %}
+                                <li><a href="{{ path }}">{{ menu }}</a></li>
+                            {% else %}
+                                <li class="active">{{ menu }}</li>
+                            {% endif %}
+
+                        {% endfor %}
+                    </ol>
+                {% else %}
+                    <div class="submenu"></div>
+                {% endif %}
+
+
+
                 <div class="container">
+
+
+
                     {% block body %}{% endblock %}
                 </div>
 

@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\SuiviTicket;
 use AppBundle\Entity\Ticket;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -26,9 +27,10 @@ class TicketController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $tickets = $em->getRepository('AppBundle:Ticket')->findAll();
-
+        $route = $this->generateRoute();
         return $this->render('ticket/index.html.twig', array(
             'tickets' => $tickets,
+            'route' => $route
         ));
     }
 
@@ -41,7 +43,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
         $form = $this->createForm('AppBundle\Form\TicketType', $ticket);
         $form->handleRequest($request);
-
+        $route = $this->generateRoute($ticket);
         if ($form->isSubmitted() && $form->isValid()) {
 
             $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Création du ticket du ticket.");;
@@ -56,6 +58,7 @@ class TicketController extends Controller
         return $this->render('ticket/new.html.twig', array(
             'ticket' => $ticket,
             'form' => $form->createView(),
+            'route'=>$route
         ));
     }
 
@@ -66,13 +69,14 @@ class TicketController extends Controller
     public function showAction(Ticket $ticket)
     {
         $deleteForm = $this->createDeleteForm($ticket);
-
+        $route = $this->generateRoute($ticket);
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:SuiviTicket');
 
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
-            'delete_form' => $deleteForm->createView()
+            'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -85,7 +89,7 @@ class TicketController extends Controller
         $deleteForm = $this->createDeleteForm($ticket);
         $editForm = $this->createForm('AppBundle\Form\TicketType', $ticket);
         $editForm->handleRequest($request);
-
+        $route = $this->generateRoute($ticket);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
            $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Modification du ticket.");
@@ -98,6 +102,7 @@ class TicketController extends Controller
             'ticket' => $ticket,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -139,5 +144,34 @@ class TicketController extends Controller
     }
 
 
+    /**
+     * Generate the route for the Ticket
+     *
+     * @param Ticket $ticket The ticket entity
+     * @return ArrayCollection
+     */
+    public function generateRoute(Ticket $ticket=null)
+    {
+        $returnValue = array();
+
+        if (!empty($ticket)) {
+            if ($ticket->getIdProjet()) {
+                $returnValue[$ticket->getIdProjet()->getLibelle()] = $this->generateUrl("projet_show",array('idProjet' => $ticket->getIdProjet()->getIdProjet()));
+            }
+
+            $returnValue["Tickets"] = $this->generateUrl("ticket_index");
+
+            if ($ticket->getIdTicket() > 0) {
+                $returnValue["#" . $ticket->getIdTicket()] = "active";
+            } else {
+                $returnValue["Création d'un nouveau ticket"] = "active";
+            }
+        }else{
+            $returnValue["Tickets"] = "active";
+        }
+
+        return $returnValue;
+
+    }
 
 }

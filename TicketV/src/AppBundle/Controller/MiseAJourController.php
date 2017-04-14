@@ -22,11 +22,13 @@ class MiseAJourController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $route = $this->generateRoute();
 
         $majs = $em->getRepository('AppBundle:MiseAJour')->findAll();
 
         return $this->render('miseajour/index.html.twig', array(
             'majs' => $majs,
+            'route'=>$route
         ));
     }
 
@@ -39,6 +41,7 @@ class MiseAJourController extends Controller
         $maj = new MiseAJour();
         $form = $this->createForm('AppBundle\Form\MiseAJourType', $maj);
         $form->handleRequest($request);
+        $route = $this->generateRoute($maj);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -51,6 +54,7 @@ class MiseAJourController extends Controller
         return $this->render('miseajour/new.html.twig', array(
             'maj' => $maj,
             'form' => $form->createView(),
+            'route'=>$route
         ));
     }
 
@@ -61,10 +65,12 @@ class MiseAJourController extends Controller
     public function showAction(MiseAJour $miseAJour)
     {
         $deleteForm = $this->createDeleteForm($miseAJour);
+        $route = $this->generateRoute($miseAJour);
 
         return $this->render('miseajour/show.html.twig', array(
             'maj' => $miseAJour,
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -77,6 +83,7 @@ class MiseAJourController extends Controller
         $deleteForm = $this->createDeleteForm($miseAJour);
         $editForm = $this->createForm('AppBundle\Form\MiseAJourType', $miseAJour);
         $editForm->handleRequest($request);
+        $route = $this->generateRoute($miseAJour);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -88,6 +95,7 @@ class MiseAJourController extends Controller
             'maj' => $miseAJour,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -123,5 +131,37 @@ class MiseAJourController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    /**
+     * Generate the route for the Mise a jour
+     *
+     * @param MiseAJour $miseAjour The MiseAJour entity
+     * @return ArrayCollection
+     */
+    public function generateRoute(MiseAJour $miseAJour=null)
+    {
+        $returnValue = array();
+
+        if (!empty($miseAJour)) {
+
+            if ($miseAJour->getProjet()) {
+                $returnValue[$miseAJour->getProjet()->getLibelle()] = $this->generateUrl("projet_show",array('idProjet' => $miseAJour->getProjet()->getIdProjet()));
+            }
+
+            $returnValue["Mises à jour"] = $this->generateUrl("miseajour_index");
+
+            if ($miseAJour->getIdMiseAJour() > 0) {
+                $returnValue["#" . $miseAJour->getIdMiseAJour()] = "active";
+            } else {
+                $returnValue["Création d'une nouvelle mise à jour"] = "active";
+            }
+        }else{
+            $returnValue["Mises à jour"] = "active";
+        }
+
+        return $returnValue;
+
     }
 }

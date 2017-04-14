@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\DegreImportance;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Degreimportance controller.
@@ -21,11 +24,12 @@ class DegreImportanceController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $route = $this->generateRoute();
         $degreImportances = $em->getRepository('AppBundle:DegreImportance')->findAll();
 
         return $this->render('degreimportance/index.html.twig', array(
             'degreImportances' => $degreImportances,
+            'route' => $route
         ));
     }
 
@@ -38,6 +42,7 @@ class DegreImportanceController extends Controller
         $degreImportance = new Degreimportance();
         $form = $this->createForm('AppBundle\Form\DegreImportanceType', $degreImportance);
         $form->handleRequest($request);
+        $route = $this->generateRoute($degreImportance);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -50,6 +55,7 @@ class DegreImportanceController extends Controller
         return $this->render('degreimportance/new.html.twig', array(
             'degreImportance' => $degreImportance,
             'form' => $form->createView(),
+            'route' => $route
         ));
     }
 
@@ -60,10 +66,12 @@ class DegreImportanceController extends Controller
     public function showAction(DegreImportance $degreImportance)
     {
         $deleteForm = $this->createDeleteForm($degreImportance);
+        $route = $this->generateRoute($degreImportance);
 
         return $this->render('degreimportance/show.html.twig', array(
             'degreImportance' => $degreImportance,
             'delete_form' => $deleteForm->createView(),
+            'route' => $route
         ));
     }
 
@@ -76,7 +84,7 @@ class DegreImportanceController extends Controller
         $deleteForm = $this->createDeleteForm($degreImportance);
         $editForm = $this->createForm('AppBundle\Form\DegreImportanceType', $degreImportance);
         $editForm->handleRequest($request);
-
+        $route = $this->generateRoute($degreImportance);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -87,6 +95,7 @@ class DegreImportanceController extends Controller
             'degreImportance' => $degreImportance,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'route' => $route
         ));
     }
 
@@ -123,4 +132,32 @@ class DegreImportanceController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Generate the route for the DegreImportance
+     *
+     * @param DegreImportance $degreImportance The degreImportance entity
+     * @return ArrayCollection
+     */
+    public function generateRoute(DegreImportance $degreImportance=null)
+    {
+        $returnValue = array();
+
+        if (!empty($degreImportance)) {
+
+            $returnValue["Importances"] = $this->generateUrl("degreimportance_index");
+
+            if ($degreImportance->getIdDegreImportance() > 0) {
+                $returnValue["#" . $degreImportance->getIdDegreImportance()] = "active";
+            } else {
+                $returnValue["Création d'un nouveau degré d'importance"] = "active";
+            }
+        }else{
+            $returnValue["lmportances"] = "active";
+        }
+
+        return $returnValue;
+
+    }
+
 }

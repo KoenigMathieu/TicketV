@@ -21,11 +21,13 @@ class ProjetController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $route = $this->generateRoute();
 
         $projets = $em->getRepository('AppBundle:Projet')->findAll();
 
         return $this->render('projet/index.html.twig', array(
             'projets' => $projets,
+            'route'=>$route
         ));
     }
 
@@ -38,6 +40,7 @@ class ProjetController extends Controller
         $projet = new Projet();
         $form = $this->createForm('AppBundle\Form\ProjetType', $projet);
         $form->handleRequest($request);
+        $route = $this->generateRoute($projet);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -50,6 +53,7 @@ class ProjetController extends Controller
         return $this->render('projet/new.html.twig', array(
             'projet' => $projet,
             'form' => $form->createView(),
+            'route'=>$route
         ));
     }
 
@@ -60,6 +64,7 @@ class ProjetController extends Controller
     public function showAction(Projet $projet)
     {
         $deleteForm = $this->createDeleteForm($projet);
+        $route = $this->generateRoute($projet);
 
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:Ticket');
@@ -69,7 +74,8 @@ class ProjetController extends Controller
         return $this->render('projet/show.html.twig', array(
             'projet' => $projet,
             'delete_form' => $deleteForm->createView(),
-            'tickets'=>$tickets
+            'tickets'=>$tickets,
+            'route'=>$route
         ));
     }
 
@@ -82,6 +88,7 @@ class ProjetController extends Controller
         $deleteForm = $this->createDeleteForm($projet);
         $editForm = $this->createForm('AppBundle\Form\ProjetType', $projet);
         $editForm->handleRequest($request);
+        $route = $this->generateRoute($projet);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -93,6 +100,7 @@ class ProjetController extends Controller
             'projet' => $projet,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -129,4 +137,33 @@ class ProjetController extends Controller
             ->getForm()
         ;
     }
+
+
+    /**
+     * Generate the route for the Projet
+     *
+     * @param Projet$ $projet The Projet entity
+     * @return ArrayCollection
+     */
+    public function generateRoute(Projet $projet=null)
+    {
+        $returnValue = array();
+
+        if (!empty($projet)) {
+
+            $returnValue["Projets"] = $this->generateUrl("projet_index");
+
+            if ($projet->getIdProjet() > 0) {
+                $returnValue["#" . $projet->getIdProjet()] = "active";
+            } else {
+                $returnValue["Création d'un nouveau projet"] = "active";
+            }
+        }else{
+            $returnValue["Projets"] = "active";
+        }
+
+        return $returnValue;
+
+    }
+
 }

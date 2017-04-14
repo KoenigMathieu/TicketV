@@ -358,4 +358,5 @@ class Ticket
 
         return $this;
     }
+
 }

@@ -16,7 +16,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $id_current_user = $this->getUser()->getId();
-
+        $route = $this->generateRoute();
         $query = $em->createQuery(
             'SELECT t FROM AppBundle:Ticket t, AppBundle:SuiviTicket st 
             WHERE t.idTicket = st.idTicket
@@ -29,7 +29,18 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'route'=>$route
         ]);
+    }
+
+    /**
+     * Generate the route for the Homepage
+     *
+     * @return ArrayCollection
+     */
+    public function generateRoute()
+    {
+        return ["Accueil"=>"active"];
     }
 }
