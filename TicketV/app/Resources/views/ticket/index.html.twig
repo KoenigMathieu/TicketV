@@ -1,5 +1,44 @@
 {% extends 'base.html.twig' %}
 
+{% block js %}
+    <script>
+
+        $(document).ready( function () {
+            $('#table').dataTable( {
+                "columnDefs": [
+                    { "orderable": false, "targets": 7 }
+                ],
+                "language": {
+                    "decimal":        "",
+                    "emptyTable":     "Aucune donnée",
+                    "info":           "Affichage _START_ à _END_ sur _TOTAL_ enregistrements",
+                    "infoEmpty":      "Affichage 0 à 0 sur 0 enregistrements",
+                    "infoFiltered":   "(filtré sur _MAX_ enregistrements)",
+                    "infoPostFix":    "",
+                    "thousands":      ",",
+                    "lengthMenu":     "Afficher _MENU_ enregistrements",
+                    "loadingRecords": "Chargement...",
+                    "processing":     "Calcul...",
+                    "search":         "Rechercher :",
+                    "zeroRecords":    "Aucune correspondance trouvée",
+                    "paginate": {
+                        "first":      "Premier",
+                        "last":       "Dernier",
+                        "next":       "Suivant",
+                        "previous":   "Précédent"
+                    },
+                    "aria": {
+                        "sortAscending":  ": Tri croissant",
+                        "sortDescending": ": Tri décroissant"
+                    }
+                }
+            } );
+        } );
+
+    </script>
+
+{% endblock %}
+
 {% block body %}
 <div class="main">
     <h1>Liste des tickets</h1>
@@ -38,13 +77,10 @@
                     </td>
                     <td>
                         <table>
-                            <tr></tr>
-                            <td>
-                                <div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div>
-                            </td>
-                            <td>
-                                {{ ticket.getIdStatut().getLibelle() }}</td>
-                            </td>
+                            <tr>
+                                <td> <div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div></td>
+                                <td>{{ ticket.getIdStatut().getLibelle() }}</td>
+                            </tr>
                         </table>
                     </td>
 
