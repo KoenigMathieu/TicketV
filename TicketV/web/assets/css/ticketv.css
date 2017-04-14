@@ -104,6 +104,7 @@ h1{
 }
 
 .container{
+    padding-top:100px;
     width:95%;
     margin-left:60px;
 }
@@ -113,6 +114,8 @@ h1{
 }
 
 .submenu{
+    position:fixed;
+    width:100%;
     background-color:#f8f8f8;
     margin:0px;
     margin-top:50px;
@@ -120,6 +123,9 @@ h1{
     margin-left:60px;
     vertical-align: center;
     font-size: 1em;
+    opacity:1;
+    z-index:1;
+    border-radius: 0px;
 }
 
 .navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav > li > a {

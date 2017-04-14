@@ -31,23 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="682">
+              <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -55,11 +43,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="42" column="38" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="689">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,8 +66,8 @@
       <file leaf-file-name="ticketv.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="108" column="1" lean-forward="false" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+            <state relative-caret-position="537">
+              <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -146,6 +144,7 @@
       <find>actic</find>
       <find>,route</find>
       <find>generateRoute</find>
+      <find>container</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,6 +186,7 @@
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/index.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig" />
+        <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css" />
       </list>
@@ -416,36 +416,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projet" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="default" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -574,12 +544,12 @@
       <option name="presentableId" value="Default" />
       <updated>1489150163601</updated>
       <workItem from="1489150165768" duration="2271000" />
-      <workItem from="1492071345887" duration="36448000" />
+      <workItem from="1492071345887" duration="38839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38719000" />
+    <option name="totallyTimeSpent" value="41110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1359" extended-state="6" />
@@ -880,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/ticket/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -941,16 +903,6 @@
         <state relative-caret-position="143">
           <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,18 +990,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="38" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="689">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="108" column="1" lean-forward="false" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+        <state relative-caret-position="537">
+          <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
           <folding />
         </state>
       </provider>
