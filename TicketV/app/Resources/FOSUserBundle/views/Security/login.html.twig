@@ -44,6 +44,19 @@
             border-top-right-radius: 0;
         }
 
+        .center{
+            text-align:center;
+        }
+
+        .remember{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+
+        label{
+            font-weight: normal;
+        }
+
     </style>
 
 {% endblock %}
@@ -63,10 +76,14 @@
             <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Login"/>
             <label class="sr-only" for="password">{{ 'Mot de passe :'|trans }}</label>
             <input class="form-control" type="password" id="password" name="_password" required="required" placeholder="Mot de passe"/>
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <label for="remember_me">{{ 'Se souvenir de moi'|trans }}</label>
+            <div class="remember">
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                <label for="remember_me">{{ 'Se souvenir de moi'|trans }}</label>
+            </div>
             <input type="submit" class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" value="{{ 'Connexion'|trans }}" />
-            <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a> - <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
+            <div class="center">
+                <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a> - <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
+            </div>
         </form>
     {% endblock fos_user_content %}
 </div>
