@@ -2,59 +2,76 @@
 
 {% block body %}
     <div class="main">
+
         <h1>#{{ ticket.idTicket }} - {{ ticket.Libelle }}</h1>
-        <hr/>
-        <div class="row">
-            <div class="col-md-2"><b>Projet : </b></div>
-            <div class="col-md-8">{{ ticket.getIdProjet().getLibelle() }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-2"><b>Importance : </b></div>
-            <div class="col-md-8">{{ ticket.getIdDegreImportance().getLibelle() }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-2"><b>Statut : </b></div>
-            <div class="col-md-8">
-                <table>
-                    <tr>
-                        <td><div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div></td>
-                        <td>{{ ticket.getIdStatut().getlibelle() }}</td>
-                    </tr>
 
-                </table></div>
-        </div>
-        {% if ticket.getMiseAJour() %}
-        <div class="row">
-            <div class="col-md-2"><b>Mise à jour : </b></div>
-            <div class="col-md-8">{{ ticket.getMiseAJour().getVersion() }} prévue le {{ ticket.getMiseAJour().getDate()|date('d/m/Y') }}</div>
-        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a  href="#1" data-toggle="tab">Informations du ticket</a>
+            </li>
+            <li><a href="#2" data-toggle="tab">Historique</a>
+            </li>
+            <li><a href="#3" data-toggle="tab">Commentaires</a>
+            </li>
+        </ul>
 
-        {% endif %}
-        <hr/>
-
-        <b> Description : </b>
-        <div class="ticket_desc">
-            {{ ticket.getDescription()|raw }}
-        </div>
-
-        <hr/>
-        <b> Suivi du ticket : </b>
-        {% for suivi in ticket.getSuiviTicket() %}
-            <div class="suivi_ticket">
+        <div class="tab-content">
+            <div class="tab-pane active" id="1">
                 <div class="row">
-                    <div class="col-md-3">
-                        <b>{{ suivi.getIdUtilisateur().username }}</b>,
-                        le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
-                        {{ suivi.getIdStatut().getLibelle() }}
+                    <div class="col-md-2"><b>Projet : </b></div>
+                    <div class="col-md-8">{{ ticket.getIdProjet().getLibelle() }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><b>Importance : </b></div>
+                    <div class="col-md-8">{{ ticket.getIdDegreImportance().getLibelle() }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><b>Statut : </b></div>
+                    <div class="col-md-8">
+                        <table>
+                            <tr>
+                                <td><div class="color_statut" style="background-color:{{ ticket.getIdStatut().getCouleur() }}"></div></td>
+                                <td>{{ ticket.getIdStatut().getlibelle() }}</td>
+                            </tr>
+
+                        </table>
                     </div>
-                    <div class="col-md-7">{{ suivi.getRemarque() }}</div>
+                </div>
+                {% if ticket.getMiseAJour() %}
+                <div class="row">
+                    <div class="col-md-2"><b>Mise à jour : </b></div>
+                    <div class="col-md-8">{{ ticket.getMiseAJour().getVersion() }} prévue le {{ ticket.getMiseAJour().getDate()|date('d/m/Y') }}</div>
+                </div>
+                {% endif %}
+                <hr/>
+
+                <b> Description : </b>
+                <div class="ticket_desc">
+                    {{ ticket.getDescription()|raw }}
                 </div>
             </div>
+            <div class="tab-pane " id="2">
+                <b> Suivi du ticket : </b>
+                {% for suivi in ticket.getSuiviTicket() %}
+                    <div class="suivi_ticket">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <b>{{ suivi.getIdUtilisateur().username }}</b>,
+                                le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
+                                {{ suivi.getIdStatut().getLibelle() }}
+                            </div>
+                            <div class="col-md-7">{{ suivi.getRemarque() }}</div>
+                        </div>
+                    </div>
 
-        {% endfor %}
-        <hr/>
+                {% endfor %}
+            </div>
+            <div class="tab-pane" id="3">
 
-        <br/>
+            </div>
+
+
+
     </div>
 
     <div class="bottom_bar">

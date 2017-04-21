@@ -20,29 +20,46 @@
     <div class="main">
     <h1>Modification du Ticket </h1>
 
-        {{ form_start(edit_form) }}
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a  href="#1" data-toggle="tab">Informations du ticket</a>
+            </li>
+            <li><a href="#2" data-toggle="tab">Historique</a>
+            </li>
+            <li><a href="#3" data-toggle="tab">Commentaires</a>
+            </li>
+        </ul>
 
-        {% form_theme edit_form 'form/fields.html.twig' %}
+        <div class="tab-content">
+            <div class="tab-pane active" id="1">
+                {{ form_start(edit_form) }}
 
-        {{ form_widget(edit_form) }}
+                {% form_theme edit_form 'form/fields.html.twig' %}
 
-        <hr/>
-        <b> Suivi du ticket : </b>
-
-        {% for suivi in ticket.getSuiviTicket() %}
-            <div class="suivi_ticket">
-                <div class="row">
-                    <div class="col-md-3">
-                        <b>{{ suivi.getIdUtilisateur().username }}</b>,
-                        le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
-                        {{ suivi.getIdStatut().getLibelle() }}
-                    </div>
-                    <div class="col-md-7">{{ suivi.getRemarque() }}</div>
-                </div>
+                {{ form_widget(edit_form) }}
             </div>
+            <div class="tab-pane" id="2">
+                <b> Suivi du ticket : </b>
 
-        {% endfor %}
-        <hr/>
+                {% for suivi in ticket.getSuiviTicket() %}
+                    <div class="suivi_ticket">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <b>{{ suivi.getIdUtilisateur().username }}</b>,
+                                le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
+                                {{ suivi.getIdStatut().getLibelle() }}
+                            </div>
+                            <div class="col-md-7">{{ suivi.getRemarque() }}</div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="tab-pane" id="3">
+
+            </div>
+        </div>
+
     </div>
 
     <div class="bottom_bar">
