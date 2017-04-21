@@ -62,20 +62,25 @@
                 </div>
             </div>
             <div class="tab-pane " id="2">
-                <b> Suivi du ticket : </b>
-                {% for suivi in ticket.getSuiviTicket() %}
-                    <div class="suivi_ticket">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <b>{{ suivi.getIdUtilisateur().username }}</b>,
-                                le {{ suivi.getDate()|date('d/m/Y à H:i:s') }}<br/>
-                                {{ suivi.getIdStatut().getLibelle() }}
-                            </div>
-                            <div class="col-md-7">{{ suivi.getRemarque() }}</div>
-                        </div>
-                    </div>
+                <table class="table table-striped">
+                    <thead>
+                    <th>Date</th>
+                    <th>Utilisateur</th>
+                    <th>Statut du ticket</th>
+                    <th>Remarque</th>
+                    </thead>
+                    <tbody>
+                    {% for suivi in ticket.getSuiviTicket() %}
+                        <tr>
+                            <td>{{ suivi.getDate()|date('d/m/Y à H:i:s') }}</td>
+                            <td>{{ suivi.getIdUtilisateur().username }}</td>
+                            <td>{{ suivi.getIdStatut().getLibelle() }}</td>
+                            <td>{{ suivi.getRemarque() }}</td>
+                        </tr>
 
-                {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane" id="3">
 
