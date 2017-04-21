@@ -49,6 +49,17 @@
                 <div class="ticket_desc">
                     {{ ticket.getDescription()|raw }}
                 </div>
+
+                <hr/>
+
+                <div class="row">
+                    <div class="col-md-2"><b>Tags : </b></div>
+                    <div class="col-md-8">
+                        {% for tags in  ticket.getTagsTag %}
+                            {{ tags.getLibelle() }}{% if tags != ticket.getTagsTag|last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
             <div class="tab-pane " id="2">
                 <b> Suivi du ticket : </b>

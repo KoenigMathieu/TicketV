@@ -76,6 +76,8 @@ h1{
     padding-left: 60px;
     background-color: #FFFFFF;
     margin-left: -60px;
+    z-index:1;
+    padding-right:50px;
 }
 
 .main{
@@ -135,3 +137,4 @@ h1{
 .tab-pane{
     padding-top:20px;
 }
+
