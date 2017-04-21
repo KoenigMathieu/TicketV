@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block style %}
+    <link href="{{ asset('assets/vendor/summernote/dist/summernote.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+
+    <script src="{{ asset('assets/vendor/summernote/dist/summernote.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#appbundle_ticket_description').summernote({height: 200});
+        });
+    </script>
+
+{% endblock %}
+
 {% block body %}
     <div class="main">
     <h1>Modification du Ticket </h1>
