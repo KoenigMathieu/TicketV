@@ -50,7 +50,7 @@ class CommentaireTicket
      *   @ORM\JoinColumn(name="ticket_id_ticket", referencedColumnName="id_ticket")
      * })
      */
-    private $ticketTicket;
+    private $ticket;
 
     /**
      * @var \AppBundle\Entity\FosUser
@@ -60,7 +60,7 @@ class CommentaireTicket
      *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
      * })
      */
-    private $idUtilisateur;
+    private $utilisateur;
 
 
 
@@ -147,39 +147,39 @@ class CommentaireTicket
     }
 
     /**
-     * Set ticketTicket
+     * Set ticket
      *
-     * @param \AppBundle\Entity\Ticket $ticketTicket
+     * @param \AppBundle\Entity\Ticket $ticket
      *
      * @return CommentaireTicket
      */
-    public function setTicketTicket(\AppBundle\Entity\Ticket $ticketTicket = null)
+    public function setTicket(\AppBundle\Entity\Ticket $ticket = null)
     {
-        $this->ticketTicket = $ticketTicket;
+        $this->ticket = $ticket;
 
         return $this;
     }
 
     /**
-     * Get ticketTicket
+     * Get ticket
      *
      * @return \AppBundle\Entity\Ticket
      */
-    public function getTicketTicket()
+    public function getTicket()
     {
-        return $this->ticketTicket;
+        return $this->ticket;
     }
 
     /**
      * Set idUtilisateur
      *
-     * @param \AppBundle\Entity\FosUser $idUtilisateur
+     * @param \AppBundle\Entity\FosUser $utilisateur
      *
      * @return CommentaireTicket
      */
-    public function setIdUtilisateur(\AppBundle\Entity\FosUser $idUtilisateur = null)
+    public function setUtilisateur(\AppBundle\Entity\FosUser $utilisateur = null)
     {
-        $this->idUtilisateur = $idUtilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
@@ -189,8 +189,8 @@ class CommentaireTicket
      *
      * @return \AppBundle\Entity\FosUser
      */
-    public function getIdUtilisateur()
+    public function getUtilisateur()
     {
-        return $this->idUtilisateur;
+        return $this->utilisateur;
     }
 }

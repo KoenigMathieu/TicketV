@@ -94,6 +94,17 @@ class Ticket
     private $suiviTickets;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CommentaireTicket", mappedBy="ticket",cascade={"persist","remove"}))
+     * @ORM\OrderBy({"date" = "DESC"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ticket_id_ticket", referencedColumnName="id_ticket")
+     * })
+     */
+    private $commentaires;
+
+    /**
      * @var \AppBundle\Entity\MiseAJour
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\MiseAJour")
@@ -338,6 +349,40 @@ class Ticket
     }
 
     /**
+     * Add CommentaireTicket
+     *
+     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
+     *
+     * @return Ticket
+     */
+    public function addCommentaire(\AppBundle\Entity\CommentaireTicket $commentaireTicket)
+    {
+        $this->commentaires[] = $commentaireTicket;
+
+        return $this;
+    }
+
+    /**
+     * Remove CommentaireTicket
+     *
+     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
+     */
+    public function removeCommentaire(\AppBundle\Entity\CommentaireTicket $commentaireTicket)
+    {
+        $this->commentaires->removeElement($commentaireTicket);
+    }
+
+    /**
+     * Get CommentaireTicket
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
      * Add suiviTicket
      *
      * @param \AppBundle\Entity\FosUser $user
@@ -355,6 +400,27 @@ class Ticket
         $suiviTicket->setRemarque($remarque);
 
         $this->suiviTickets[] = $suiviTicket;
+
+        return $this;
+    }
+
+    /**
+     * Add Commentaire
+     *
+     * @param \AppBundle\Entity\FosUser $user
+     * @param String $remarque
+     *
+     * @return Ticket
+     */
+    public function addCommentairetWithUserAndRemarque(User $user,$remarque)
+    {
+        $commentaire = new CommentaireTicket();
+        $commentaire->setDate(new \DateTime());
+        $commentaire->setUtilisateur($user);
+        $commentaire->setTicket($this);
+        $commentaire->setRemarque($remarque);
+
+        $this->commentaires[] = $commentaire;
 
         return $this;
     }

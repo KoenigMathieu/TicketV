@@ -83,7 +83,16 @@
                 </table>
             </div>
             <div class="tab-pane" id="3">
-
+                    {% for commentaire in ticket.getCommentaires() %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-md-2"><b>{{ commentaire.getUtilisateur().username }}</b><br/>le {{ commentaire.getDate()|date('d/m/Y à H:i:s') }}</div>
+                            <div class="col-md-8">{{ commentaire.getRemarque()|raw }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
 
 

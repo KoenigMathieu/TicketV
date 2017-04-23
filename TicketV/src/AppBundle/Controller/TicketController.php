@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -90,17 +91,31 @@ class TicketController extends Controller
         $editForm = $this->createForm('AppBundle\Form\TicketType', $ticket);
         $editForm->handleRequest($request);
         $route = $this->generateRoute($ticket);
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        $commentaireForm = $this->createCommentaireForm();
+        $commentaireForm->handleRequest($request);
 
-           $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Modification du ticket.");
-           $this->getDoctrine()->getManager()->flush();
+        if ($commentaireForm->isSubmitted() && $commentaireForm->isValid()) {
+
+            $ticket->addCommentairetWithUserAndRemarque($this->getUser(),$commentaireForm["commentaire"]->getData());
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
 
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Modification du ticket.");
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
+        }
+
+
+
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,
             'edit_form' => $editForm->createView(),
+            'commentaire_form'=>$commentaireForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'route'=>$route
         ));
@@ -143,6 +158,19 @@ class TicketController extends Controller
         ;
     }
 
+    /**
+     * Creates a form for commentary
+     *
+     * @param Ticket $ticket The ticket entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    public function createCommentaireForm() {
+
+        return $form = $this->createFormBuilder(null)
+            ->add('commentaire', TextareaType::class, array('label'=>'Ajouter un commentaire :'))
+            ->getForm();
+    }
 
     /**
      * Generate the route for the Ticket
