@@ -43,7 +43,7 @@ class PlageTravail
      *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
      * })
      */
-    private $idTicket;
+    private $ticket;
 
     /**
      * @var \AppBundle\Entity\FosUser
@@ -53,7 +53,7 @@ class PlageTravail
      *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
      * })
      */
-    private $idUtilisateur;
+    private $utilisateur;
 
 
 
@@ -116,50 +116,50 @@ class PlageTravail
     }
 
     /**
-     * Set idTicket
+     * Set ticket
      *
-     * @param \AppBundle\Entity\Ticket $idTicket
+     * @param \AppBundle\Entity\Ticket $ticket
      *
      * @return PlageTravail
      */
-    public function setIdTicket(\AppBundle\Entity\Ticket $idTicket = null)
+    public function setTicket(\AppBundle\Entity\Ticket $ticket = null)
     {
-        $this->idTicket = $idTicket;
+        $this->ticket = $ticket;
 
         return $this;
     }
 
     /**
-     * Get idTicket
+     * Get ticket
      *
      * @return \AppBundle\Entity\Ticket
      */
-    public function getIdTicket()
+    public function getTicket()
     {
-        return $this->idTicket;
+        return $this->ticket;
     }
 
     /**
-     * Set idUtilisateur
+     * Set utilisateur
      *
-     * @param \AppBundle\Entity\FosUser $idUtilisateur
+     * @param \AppBundle\Entity\FosUser $utilisateur
      *
      * @return PlageTravail
      */
-    public function setIdUtilisateur(\AppBundle\Entity\FosUser $idUtilisateur = null)
+    public function setUtilisateur(\AppBundle\Entity\FosUser $utilisateur = null)
     {
-        $this->idUtilisateur = $idUtilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idUtilisateur
+     * Get utilisateur
      *
      * @return \AppBundle\Entity\FosUser
      */
-    public function getIdUtilisateur()
+    public function getUtilisateur()
     {
-        return $this->idUtilisateur;
+        return $this->utilisateur;
     }
 }

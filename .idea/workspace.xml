@@ -3,25 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa32b764-ad15-4f8e-994d-6dfcd2c5b13d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/projet/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/statut/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/tags/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/edit.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/new.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css" afterPath="$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php" afterPath="$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,60 +19,50 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/edit.html.twig">
+        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/new.html.twig">
+        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/miseajour/show.html.twig">
+        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/edit.html.twig">
+      <file leaf-file-name="PlageTravail.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/show.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="163">
+              <caret line="128" column="21" lean-forward="true" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -122,6 +94,7 @@
       <find>right</find>
       <find>bottom</find>
       <find>label</find>
+      <find>breadcrumb</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,9 +132,7 @@
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/tags/index.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/index.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
-        <option value="$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/edit.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/show.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/ticket/new.html.twig" />
@@ -180,6 +151,9 @@
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/edit.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/show.html.twig" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/new.html.twig" />
+        <option value="$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css" />
+        <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php" />
       </list>
     </option>
   </component>
@@ -472,66 +446,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projet" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="degreimportance" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TicketV" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="FOSUserBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -655,15 +569,15 @@
       <workItem from="1489150165768" duration="2271000" />
       <workItem from="1492071345887" duration="38890000" />
       <workItem from="1492773519016" duration="10031000" />
-      <workItem from="1492826523726" duration="2253000" />
+      <workItem from="1492826523726" duration="8845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53445000" />
+    <option name="totallyTimeSpent" value="60037000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1359" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1359" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25575852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -722,43 +636,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/SuiviTicket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/CommentaireTicket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="193" column="33" lean-forward="false" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-925">
-          <caret line="342" column="23" lean-forward="false" selection-start-line="342" selection-start-column="23" selection-end-line="342" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Form/TicketType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="48" column="54" lean-forward="false" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Resources/config/ticket.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Resources/config/projet.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -906,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -947,14 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="149" column="17" lean-forward="false" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1090,15 +952,71 @@
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/degreimportance/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/web/assets/css/ticketv.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="93" column="23" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="128" column="21" lean-forward="true" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
           <folding />
         </state>
       </provider>
