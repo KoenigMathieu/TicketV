@@ -73,6 +73,9 @@
                         <a data-toggle="tooltip" data-placement="right" title="Tickets" href="{{ path('ticket_index') }}" {% if app.request.attributes.get('_route') starts with 'ticket' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-th-list"/></a>
                     </li>
                     <li>
+                        <a data-toggle="tooltip" data-placement="right" title="Plage de travail" href="{{ path('plagetravail_index') }}" {% if app.request.attributes.get('_route') starts with 'plagetravail' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-dashboard"/></a>
+                    </li>
+                    <li>
                         <a data-toggle="tooltip" data-placement="right" title="Projets" href="{{ path('projet_index') }}" {% if app.request.attributes.get('_route') starts with 'projet' %} class="active" {% endif %} ><span class="menu_icon glyphicon glyphicon-folder-open"/></a>
                     </li>
                     <li>

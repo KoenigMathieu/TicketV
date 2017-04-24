@@ -24,10 +24,16 @@ class PlageTravailController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $plageTravails = $em->getRepository('AppBundle:PlageTravail')->findAll();
+        $repository = $this->getDoctrine()
+                           ->getRepository('AppBundle:PlageTravail');
+
+        $plageTravails = $repository->findBy(["utilisateur"=>$this->getUser()->getId()]);
+
+        $route = $this->generateRoute();
 
         return $this->render('plagetravail/index.html.twig', array(
             'plageTravails' => $plageTravails,
+            'route'=>$route
         ));
     }
 
@@ -42,6 +48,7 @@ class PlageTravailController extends Controller
         $plageTravail = new Plagetravail();
         $form = $this->createForm('AppBundle\Form\PlageTravailType', $plageTravail);
         $form->handleRequest($request);
+        $route = $this->generateRoute($plageTravail);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -54,6 +61,7 @@ class PlageTravailController extends Controller
         return $this->render('plagetravail/new.html.twig', array(
             'plageTravail' => $plageTravail,
             'form' => $form->createView(),
+            'route'=>$route
         ));
     }
 
@@ -66,10 +74,12 @@ class PlageTravailController extends Controller
     public function showAction(PlageTravail $plageTravail)
     {
         $deleteForm = $this->createDeleteForm($plageTravail);
+        $route = $this->generateRoute($plageTravail);
 
         return $this->render('plagetravail/show.html.twig', array(
             'plageTravail' => $plageTravail,
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -84,6 +94,7 @@ class PlageTravailController extends Controller
         $deleteForm = $this->createDeleteForm($plageTravail);
         $editForm = $this->createForm('AppBundle\Form\PlageTravailType', $plageTravail);
         $editForm->handleRequest($request);
+        $route = $this->generateRoute($plageTravail);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -95,6 +106,7 @@ class PlageTravailController extends Controller
             'plageTravail' => $plageTravail,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'route'=>$route
         ));
     }
 
@@ -133,4 +145,37 @@ class PlageTravailController extends Controller
             ->getForm()
         ;
     }
+
+
+    /**
+     * Generate the route for the PlageTravail
+     *
+     * @param PlageTravail $plageTravail The PlageTravail entity
+     * @return ArrayCollection
+     */
+    public function generateRoute(PlageTravail $plage=null)
+    {
+        $returnValue = array();
+
+        if (!empty($plage)) {
+
+            $returnValue["Plages de travail"] = $this->generateUrl("plagetravail_index");
+
+            $returnValue[$plage->getTicket()->getIdProjet()->getLibelle()] = $this->generateUrl("projet_show",array('idProjet' => $plage->getTicket()->getIdProjet()->getIdProjet()));
+
+            $returnValue["Ticket #" . $plage->getTicket()->getIdTicket()] = $this->generateUrl("ticket_show",array('idTitcket' => $plage->getTicket()->getIdTicket()));
+
+            if ($plage->getIdPlage() > 0) {
+                $returnValue["#" . $plage->getIdPlage()] = "active";
+            } else {
+                $returnValue["Création d'une nouvelle plage de travail"] = "active";
+            }
+        }else{
+            $returnValue["Plages de travail"] = "active";
+        }
+
+        return $returnValue;
+
+    }
+
 }
