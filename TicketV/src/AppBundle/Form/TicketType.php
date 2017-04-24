@@ -16,7 +16,26 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('libelle',TextType::class,['label'=>'Libellé : '])
+        $builder->add('idProjet', EntityType::class, array(
+            'class' => 'AppBundle:Projet',
+            'choice_label' => 'libelle',
+            'label'=>'Projet : '
+        ))
+
+        ->add('idStatut', EntityType::class, array(
+              'class' => 'AppBundle:Statut',
+              'choice_label' => 'libelle',
+              'label'=>'Statut : '
+         ))
+        ->add('miseAJour', EntityType::class, array(
+          'class' => 'AppBundle:MiseAJour',
+          'choice_label' => 'version',
+          'required' => false,
+          'placeholder'   =>'Aucune',
+          'empty_data'  => null,
+          'label'=>'Mise à jour : '
+        ))
+        ->add('libelle',TextType::class,['label'=>'Libellé : '])
             ->add('description',TextareaType::class,['label'=>'Description : '])
 
             ->add('idDegreImportance', EntityType::class, array(
@@ -25,26 +44,7 @@ class TicketType extends AbstractType
                 'label'=>'Importance : '
             ))
 
-            ->add('idProjet', EntityType::class, array(
-                'class' => 'AppBundle:Projet',
-                'choice_label' => 'libelle',
-                'label'=>'Projet : '
-            ))
 
-            ->add('idStatut', EntityType::class, array(
-                'class' => 'AppBundle:Statut',
-                'choice_label' => 'libelle',
-                'label'=>'Statut : '
-            ))
-
-            ->add('miseAJour', EntityType::class, array(
-                'class' => 'AppBundle:MiseAJour',
-                'choice_label' => 'version',
-                'required' => false,
-                'placeholder'   =>'Aucune',
-                'empty_data'  => null,
-                'label'=>'Mise à jour : '
-            ))
 
             ->add('tagsTag', EntityType::class, array(
                 'class' => 'AppBundle:Tags',
