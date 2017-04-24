@@ -57,8 +57,8 @@
                 {% for plage in plageTravails %}
                     <tr>
                         <td>{{ plage.getIdPlage() }}</td>
-                        <td>{{ plage.getDateDebut()|date("d/m/Y") }}</td>
-                        <td>{{ plage.getDateFin()|date("d/m/Y") }}</td>
+                        <td>{{ plage.getDateDebut()|date('d/m/Y - H:i:s') }}</td>
+                        <td>{{ plage.getDateFin()|date('d/m/Y - H:i:s') }}</td>
 
                         <td class="text-center">
                             <div class="dropdown">

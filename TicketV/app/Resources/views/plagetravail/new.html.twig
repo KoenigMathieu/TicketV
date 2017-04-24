@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Plagetravail creation</h1>
+    <div class="main">
+        <h1>Création d'une plage de travail</h1>
 
-    {{ form_start(form) }}
+        {{ form_start(form) }}
+
+        {% form_theme form 'form/fields.html.twig' %}
+
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('plagetravail_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="bottom_bar">
+        <a href="{{ path('plagetravail_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+        <input class="btn btn-primary nouveau-button" type="submit" value="Créer cette plage de travail" />
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

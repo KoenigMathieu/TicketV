@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Plagetravail</h1>
+    <div class="main">
+        <h1>Plage de travail</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Datedebut</th>
-                <td>{% if plageTravail.dateDebut %}{{ plageTravail.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Datefin</th>
-                <td>{% if plageTravail.dateFin %}{{ plageTravail.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Idplage</th>
-                <td>{{ plageTravail.idPlage }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row">
+            <div class="col-md-2"><b>Identifiant : </b></div>
+            <div class="col-md-8">{{ plageTravail.getIdPlage() }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Date début : </b></div>
+            <div class="col-md-8">{{ plageTravail.getDateDebut()|date('d/m/Y - H:i:s') }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Date fin : </b></div>
+            <div class="col-md-8">{{ plageTravail.getDateFin()|date('d/m/Y - H:i:s') }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Ticket : </b></div>
+            <div class="col-md-8"><a href="{{ path('ticket_show', { 'idTicket': plageTravail.getTicket().getIdTicket() }) }}">#{{ plageTravail.getTicket().getIdTicket() }} {{ plageTravail.getTicket().getLibelle() }}</a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Utilisateur : </b></div>
+            <div class="col-md-8">{{ plageTravail.getUtilisateur().username }}</div>
+        </div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('plagetravail_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('plagetravail_edit', { 'idPlage': plageTravail.idPlage }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="bottom_bar">
+        <a href="{{ path('plagetravail_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
+        <a href="{{ path('plagetravail_edit', { 'idPlage': plageTravail.idPlage }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-primary supprimer-button" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

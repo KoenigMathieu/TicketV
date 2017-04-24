@@ -161,15 +161,17 @@ class PlageTravailController extends Controller
 
             $returnValue["Plages de travail"] = $this->generateUrl("plagetravail_index");
 
-            $returnValue[$plage->getTicket()->getIdProjet()->getLibelle()] = $this->generateUrl("projet_show",array('idProjet' => $plage->getTicket()->getIdProjet()->getIdProjet()));
-
-            $returnValue["Ticket #" . $plage->getTicket()->getIdTicket()] = $this->generateUrl("ticket_show",array('idTitcket' => $plage->getTicket()->getIdTicket()));
-
             if ($plage->getIdPlage() > 0) {
+
+                $returnValue[$plage->getTicket()->getIdProjet()->getLibelle()] = $this->generateUrl("projet_show", array('idProjet' => $plage->getTicket()->getIdProjet()->getIdProjet()));
+
+                $returnValue["Ticket #" . $plage->getTicket()->getIdTicket()] = $this->generateUrl("ticket_show", array('idTicket' => $plage->getTicket()->getIdTicket()));
+
                 $returnValue["#" . $plage->getIdPlage()] = "active";
             } else {
                 $returnValue["Création d'une nouvelle plage de travail"] = "active";
             }
+
         }else{
             $returnValue["Plages de travail"] = "active";
         }
