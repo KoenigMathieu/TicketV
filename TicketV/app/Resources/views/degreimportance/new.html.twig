@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="main">
-    <h1>Création d'un degré d'importanc</h1>
+    <h1>Création d'un degré d'importance</h1>
 
     {{ form_start(form) }}
 
@@ -12,10 +12,8 @@
     </div>
     <div class="bottom_bar">
         <a href="{{ path('degreimportance_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
-        <div class="pull-right">
-           <input class="btn btn-primary" type="submit" value="Créer ce degré d'importance" />
-        </div>
-    {{ form_end(form) }}
+        <input class="btn btn-primary nouveau-button" type="submit" value="Créer ce degré d'importance" />
+        {{ form_end(form) }}
     </div>
 
 

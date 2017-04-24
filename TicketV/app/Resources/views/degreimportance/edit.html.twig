@@ -9,23 +9,17 @@
     {% form_theme edit_form 'form/fields.html.twig' %}
 
     {{ form_widget(edit_form) }}
+
+    <input class="btn btn-primary modifier-button" type="submit" value="Modifier" />
+
+    {{ form_end(edit_form) }}
 </div>
 
 <div class="bottom_bar">
     <a href="{{ path('degreimportance_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
-    <div class="pull-right">
-        <div class="row">
-            <div class="col-md-5">
-                <input class="btn btn-primary" type="submit" value="Modifier" />
-                {{ form_end(edit_form) }}
-            </div>
-            <div class="col-md-5">
-                {{ form_start(delete_form) }}
-                <input class="btn btn-primary" type="submit" value="Supprimer">
-                {{ form_end(delete_form) }}
-            </div>
-        </div>
-    </div>
+    {{ form_start(delete_form) }}
+    <input class="btn btn-primary supprimer-button" type="submit" value="Supprimer">
+    {{ form_end(delete_form) }}
 </div>
 
 {% endblock %}

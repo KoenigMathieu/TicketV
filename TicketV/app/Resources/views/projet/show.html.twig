@@ -132,10 +132,8 @@
 <div class="bottom_bar">
     <a href="{{ path('projet_index') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Retour à la liste</a>
     <a href="{{ path('projet_edit', { 'idProjet': projet.idProjet }) }}"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
-    <div class="pull-right">
-        {{ form_start(delete_form) }}
-        <input class="btn btn-primary" type="submit" value="Supprimer">
-        {{ form_end(delete_form) }}
-    </div>
+    {{ form_start(delete_form) }}
+    <input class="btn btn-primary supprimer-button" type="submit" value="Supprimer">
+    {{ form_end(delete_form) }}
 </div>
 {% endblock %}
