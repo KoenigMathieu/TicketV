@@ -49,6 +49,11 @@
 {% endblock %}
 
 
+{% block time_widget %}
+    <input type="time" width="70%"  class="form-control" {{ block('widget_attributes') }} value="{{ value }}"/>
+{% endblock %}
+
+
 
 
 

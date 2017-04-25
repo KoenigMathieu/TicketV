@@ -99,7 +99,7 @@ class PlageTravailController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('plagetravail_edit', array('idPlage' => $plageTravail->getIdplage()));
+            return $this->redirectToRoute('plagetravail_show', array('idPlage' => $plageTravail->getIdplage()));
         }
 
         return $this->render('plagetravail/edit.html.twig', array(

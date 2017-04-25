@@ -6,7 +6,7 @@
         $(document).ready( function () {
             $('#table').dataTable( {
                 "columnDefs": [
-                    { "orderable": false, "targets": 4 },
+                    { "orderable": false, "targets": 5 },
                 ],
                 "language": {
                     "decimal":        "",
@@ -50,6 +50,8 @@
                     <th>#</th>
                     <th>Date début</th>
                     <th>Date fin</th>
+                    <th>Ticket</th>
+                    <th>Remarque</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -57,9 +59,17 @@
                 {% for plage in plageTravails %}
                     <tr>
                         <td>{{ plage.getIdPlage() }}</td>
-                        <td>{{ plage.getDateDebut()|date('d/m/Y - H:i:s') }}</td>
-                        <td>{{ plage.getDateFin()|date('d/m/Y - H:i:s') }}</td>
-
+                        <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                        <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                    <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>{{ plage.getRemarque() }}
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

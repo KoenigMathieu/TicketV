@@ -13,18 +13,39 @@ use Doctrine\ORM\Mapping as ORM;
 class PlageTravail
 {
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="date_debut", type="datetime", nullable=true)
+     * @ORM\Column(name="date_debut", type="date")
      */
     private $dateDebut;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="date_fin", type="datetime", nullable=true)
+     * @ORM\Column(name="heure_debut", type="time")
+     */
+    private $heureDebut;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_fin", type="date")
      */
     private $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="heure_fin", type="time")
+     */
+    private $heureFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="remarque", type="text",nullable=true)
+     */
+    private $remarque;
 
     /**
      * @var integer
@@ -82,6 +103,30 @@ class PlageTravail
     }
 
     /**
+     * Set heureDebut
+     *
+     * @param String $heureDebut
+     *
+     * @return PlageTravail
+     */
+    public function setHeureDebut($heureDebut)
+    {
+        $this->heureDebut = $heureDebut;
+
+        return $this;
+    }
+
+    /**
+     * Get heureDebut
+     *
+     * @return string
+     */
+    public function getHeureDebut()
+    {
+        return $this->heureDebut;
+    }
+
+    /**
      * Set dateFin
      *
      * @param \DateTime $dateFin
@@ -104,6 +149,32 @@ class PlageTravail
     {
         return $this->dateFin;
     }
+
+
+    /**
+     * Set heureFin
+     *
+     * @param string $heureFin
+     *
+     * @return PlageTravail
+     */
+    public function setHeureFin($heureFin)
+    {
+        $this->heureFin = $heureFin;
+
+        return $this;
+    }
+
+    /**
+     * Get heureFin
+     *
+     * @return string
+     */
+    public function getHeureFin()
+    {
+        return $this->heureFin;
+    }
+
 
     /**
      * Get idPlage
@@ -162,4 +233,30 @@ class PlageTravail
     {
         return $this->utilisateur;
     }
+
+
+    /**
+     * Set remarque
+     *
+     * @param string $remarque
+     *
+     * @return PlageTravail
+     */
+    public function setRemarque($remarque)
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    /**
+     * Get remarque
+     *
+     * @return \AppBundle\Entity\FosUser
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
+    }
+
 }

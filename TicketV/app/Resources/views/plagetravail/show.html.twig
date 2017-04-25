@@ -9,20 +9,33 @@
             <div class="col-md-8">{{ plageTravail.getIdPlage() }}</div>
         </div>
         <div class="row">
-            <div class="col-md-2"><b>Date début : </b></div>
-            <div class="col-md-8">{{ plageTravail.getDateDebut()|date('d/m/Y - H:i:s') }}</div>
+            <div class="col-md-2"><b>Début : </b></div>
+            <div class="col-md-8">{{ plageTravail.getDateDebut()|date('d/m/Y') }} - {{ plageTravail.getHeureDebut()|date('H:i:s') }}</div>
         </div>
+
         <div class="row">
-            <div class="col-md-2"><b>Date fin : </b></div>
-            <div class="col-md-8">{{ plageTravail.getDateFin()|date('d/m/Y - H:i:s') }}</div>
+            <div class="col-md-2"><b>Fin : </b></div>
+            <div class="col-md-8">{{ plageTravail.getDateFin()|date('d/m/Y') }} - {{ plageTravail.getHeureFin()|date('H:i:s') }}</div>
         </div>
+
         <div class="row">
             <div class="col-md-2"><b>Ticket : </b></div>
-            <div class="col-md-8"><a href="{{ path('ticket_show', { 'idTicket': plageTravail.getTicket().getIdTicket() }) }}">#{{ plageTravail.getTicket().getIdTicket() }} {{ plageTravail.getTicket().getLibelle() }}</a></div>
+            <div class="col-md-8">
+                <table>
+                    <tr>
+                        <td><div class="color_statut" style="background-color:{{ plageTravail.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                        <td> <a href="{{ path('ticket_show', { 'idTicket': plageTravail.getTicket().getIdTicket() }) }}">#{{ plageTravail.getTicket().getIdTicket() }} {{ plageTravail.getTicket().getLibelle() }}</a></td>
+                    </tr>
+                </table>
+           </div>
         </div>
         <div class="row">
             <div class="col-md-2"><b>Utilisateur : </b></div>
             <div class="col-md-8">{{ plageTravail.getUtilisateur().username }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><b>Remarqie : </b></div>
+            <div class="col-md-8">{{ plageTravail.getRemarque() }}</div>
         </div>
     </div>
 
