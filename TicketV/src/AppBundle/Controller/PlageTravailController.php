@@ -6,6 +6,7 @@ use AppBundle\Entity\PlageTravail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Plagetravail controller.
@@ -31,8 +32,42 @@ class PlageTravailController extends Controller
 
         $route = $this->generateRoute();
 
+        $aujourdhui = new \DateTime();
+        $aujourdhui =  $aujourdhui->format('Y-m-d');
+        $debut_semaine = new \DateTime();
+        $debut_semaine->setTimestamp(strtotime("last monday"));
+        $debut_semaine = $debut_semaine->format('Y-m-d');
+        $debut_mois = new \DateTime();
+        $debut_mois = $debut_mois->format('Y-m-01');
+        $debut_annee = new \DateTime();
+        $debut_annee = $debut_annee->format('Y-01-01');
+
+        $plage_travails_jour = array();
+        $plageTravails_semaine = array();
+        $plageTravails_mois = array();
+        $plageTravails_annee = array();
+
+        foreach ($plageTravails as $plage){
+            if ($plage->getDateDebut()->format("Y-m-d") == $aujourdhui){
+                $plage_travails_jour[] = $plage;
+            }
+            if ($plage->getDateDebut()->format("Y-m-d") >= $debut_semaine){
+                $plageTravails_semaine[] = $plage;
+            }
+            if ($plage->getDateDebut()->format("Y-m-d") >= $debut_mois){
+                $plageTravails_mois[] = $plage;
+            }
+            if ($plage->getDateDebut()->format("Y-m-d") >= $debut_annee){
+                $plageTravails_annee[] = $plage;
+            }
+        }
+
         return $this->render('plagetravail/index.html.twig', array(
             'plageTravails' => $plageTravails,
+            'plageTravails_jour'=>$plage_travails_jour,
+            'plageTravails_semaine'=> $plageTravails_semaine,
+            'plageTravails_mois'=> $plageTravails_mois,
+            'plageTravails_annee'=> $plageTravails_annee,
             'route'=>$route
         ));
     }

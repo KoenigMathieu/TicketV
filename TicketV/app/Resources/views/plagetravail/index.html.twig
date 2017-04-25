@@ -4,9 +4,9 @@
     <script>
 
         $(document).ready( function () {
-            $('#table').dataTable( {
+            $('.table').dataTable( {
                 "columnDefs": [
-                    { "orderable": false, "targets": 5 },
+                    { "orderable": false, "targets": 4 },
                 ],
                 "language": {
                     "decimal":        "",
@@ -43,50 +43,262 @@
     <div class="main">
         <h1>Plages de travail</h1>
 
-        <div class="table-responsive">
-            <table id="table" class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Date début</th>
-                    <th>Date fin</th>
-                    <th>Ticket</th>
-                    <th>Remarque</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for plage in plageTravails %}
-                    <tr>
-                        <td>{{ plage.getIdPlage() }}</td>
-                        <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                        <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
-                                    <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td>{{ plage.getRemarque() }}
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                                    <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
-                                    <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
-                                    <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
 
-            </table>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a  href="#1" data-toggle="tab">Aujourd'hui</a>
+            </li>
+            <li>
+                <a href="#2" data-toggle="tab">Semaine courante</a>
+            </li>
+            <li>
+                <a href="#3" data-toggle="tab">Mois courant</a>
+            </li>
+            <li>
+                <a href="#4" data-toggle="tab">Année courante</a>
+            </li>
+            <li>
+                <a href="#5" data-toggle="tab">Tous</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="1">
+                <div class="table-responsive">
+                    <table id="table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th>Ticket</th>
+                            <th>Remarque</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plage in plageTravails_jour %}
+                            <tr>
+                                <td>{{ plage.getIdPlage() }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                            <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{{ plage.getRemarque() }}
+                                <td class="text-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
+                                            <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
+                                            <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="2">
+                <div class="table-responsive">
+                    <table id="table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th>Ticket</th>
+                            <th>Remarque</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plage in plageTravails_semaine %}
+                            <tr>
+                                <td>{{ plage.getIdPlage() }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                            <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{{ plage.getRemarque() }}
+                                <td class="text-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
+                                            <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
+                                            <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="3">
+                <div class="table-responsive">
+                    <table id="table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th>Ticket</th>
+                            <th>Remarque</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plage in plageTravails_mois %}
+                            <tr>
+                                <td>{{ plage.getIdPlage() }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                            <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{{ plage.getRemarque() }}
+                                <td class="text-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
+                                            <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
+                                            <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="4">
+                <div class="table-responsive">
+                    <table id="table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th>Ticket</th>
+                            <th>Remarque</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plage in plageTravails_annee %}
+                            <tr>
+                                <td>{{ plage.getIdPlage() }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                            <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{{ plage.getRemarque() }}
+                                <td class="text-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
+                                            <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
+                                            <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="5">
+                <div class="table-responsive">
+                    <table id="table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th>Ticket</th>
+                            <th>Remarque</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plage in plageTravails %}
+                            <tr>
+                                <td>{{ plage.getIdPlage() }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
+                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td> <div class="color_statut" style="background-color:{{ plage.getTicket().getIdStatut().getCouleur() }}"></div></td>
+                                            <td><a href="{{ path('ticket_show', { 'idTicket': plage.getTicket().getIdTicket() }) }}">#{{ plage.getTicket().getIdTicket() }} {{ plage.getTicket().getLibelle() }}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{{ plage.getRemarque() }}
+                                <td class="text-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a href="{{ path('plagetravail_show', { 'idPlage': plage.idPlage }) }}">Consulter</a></li>
+                                            <li><a href="{{ path('plagetravail_edit', { 'idPlage': plage.idPlage }) }}">Modifier</a></li>
+                                            <li><a href="{{ path('plagetravail_delete', { 'idPlage': plage.idPlage }) }}">Supprimer</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="bottom_bar">
