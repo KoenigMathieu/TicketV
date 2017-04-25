@@ -70,8 +70,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date début</th>
-                            <th>Date fin</th>
+                            <th>Période</th>
                             <th>Ticket</th>
                             <th>Remarque</th>
                             <th></th>
@@ -81,8 +80,7 @@
                         {% for plage in plageTravails_jour %}
                             <tr>
                                 <td>{{ plage.getIdPlage() }}</td>
-                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}<br/>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
                                 <td>
                                     <table>
                                         <tr>
@@ -117,8 +115,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date début</th>
-                            <th>Date fin</th>
+                            <th>Période</th>
                             <th>Ticket</th>
                             <th>Remarque</th>
                             <th></th>
@@ -128,8 +125,7 @@
                         {% for plage in plageTravails_semaine %}
                             <tr>
                                 <td>{{ plage.getIdPlage() }}</td>
-                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}<br/>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
                                 <td>
                                     <table>
                                         <tr>
@@ -164,8 +160,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date début</th>
-                            <th>Date fin</th>
+                            <th>Période</th>
                             <th>Ticket</th>
                             <th>Remarque</th>
                             <th></th>
@@ -175,8 +170,7 @@
                         {% for plage in plageTravails_mois %}
                             <tr>
                                 <td>{{ plage.getIdPlage() }}</td>
-                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}<br/>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
                                 <td>
                                     <table>
                                         <tr>
@@ -211,8 +205,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date début</th>
-                            <th>Date fin</th>
+                            <th>Période</th>
                             <th>Ticket</th>
                             <th>Remarque</th>
                             <th></th>
@@ -222,8 +215,7 @@
                         {% for plage in plageTravails_annee %}
                             <tr>
                                 <td>{{ plage.getIdPlage() }}</td>
-                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}<br/>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
                                 <td>
                                     <table>
                                         <tr>
@@ -258,8 +250,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date début</th>
-                            <th>Date fin</th>
+                            <th>Période</th>
                             <th>Ticket</th>
                             <th>Remarque</th>
                             <th></th>
@@ -269,8 +260,7 @@
                         {% for plage in plageTravails %}
                             <tr>
                                 <td>{{ plage.getIdPlage() }}</td>
-                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}</td>
-                                <td>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
+                                <td>{{ plage.getDateDebut()|date('d/m/Y') }} - {{ plage.getHeureDebut()|date('H:i:s')}}<br/>{{ plage.getDateFin()|date('d/m/Y') }} - {{ plage.getHeureFin()|date('H:i:s') }}</td>
                                 <td>
                                     <table>
                                         <tr>
